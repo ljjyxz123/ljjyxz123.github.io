@@ -1,0 +1,26 @@
+<div class="meta">
+    <div class="date">
+        <i class="icon-calendar icon-large"></i>
+        <abbr class="published" title="{{ article.date.isoformat() }}">
+            {{ article.locale_date }}
+        </abbr>
+    </div>
+    {% if article.author %}
+        <div class="author">
+            <i class="icon-user icon-large"></i>
+            <a href="{{ SITEURL }}/about.html">{{ article.author }}</a>
+        </div>
+    {% endif %}
+    <div class="category">
+        <i class="icon-folder-open icon-large"></i>
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    </div>
+    {% if article.tags %}
+        <div class="tags">
+            <i class="icon-tag icon-large"></i>
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>,
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

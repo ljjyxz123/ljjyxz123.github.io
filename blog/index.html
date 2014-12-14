@@ -1,0 +1,30 @@
+{% extends "blog.html" %}
+{% block title %}Blogs{% endblock %}
+{% block description %}Latest blog posts{% endblock %}
+{% block blog_title %}Latest blog posts{% endblock %}
+{% block blog_content %}
+    {% if articles %}
+        <ul>
+            {% for article in (articles_page.object_list if articles_page else articles) %}
+                <li class="article">
+                    <article class="format-standard">
+                        {% set image_main = article|image_main_path %}
+                        {% if image_main %}
+                            <div class="feature-image">
+                                <a href="{{ image_main }}" data-rel="prettyPhoto">
+                                    <img src="{{ image_main }}" alt="{{ article.title }}"/>
+                                </a>
+                            </div>
+                        {% endif %}
+                        <h2 class="post-heading"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+
+                        <div class="excerpt">{{ article.summary }}</div>
+                        <div class="clearfix"></div>
+                        {% include "partial/article_info.html" %}
+                    </article>
+                    <hr/>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock blog_content %}
