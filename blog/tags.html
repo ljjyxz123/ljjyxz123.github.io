@@ -1,0 +1,20 @@
+{% extends "blog.html" %}
+{% block title %}Tags{% endblock %}
+{% block description %}All tags{% endblock %}
+{% block blog_title %}All tags{% endblock %}
+{% block blog_content %}
+    <div class="list">
+        <ul class="ul-1">
+            {% for tag, articles in tags %}
+                <li>
+                    <h4><a href="{{ SITEURL }}/{{ tag.url }}"><i class="icon-tag icon-large"></i>{{ tag }}</a></h4>
+                    <ul class="ul-2">
+                        {% for article in articles %}
+                            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

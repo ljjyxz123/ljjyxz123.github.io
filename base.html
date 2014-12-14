@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="Yuanbo She">
+    <title>{% block title %}{% endblock %} | {{ SITENAME }}</title>
+	<meta name="google-site-verification" content="0mXr6Pg187Q4q6NgNglcunnBiVqqS1L4yKV6loUWYkY" />
+    <meta name="baidu-site-verification" content="mokzl45EA3" />
+    <meta name="ujianVerification" content="e4d1651983db8731b2591d1b93719116"/>
+
+    <!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+</head>
+
+<body lang="zh">
+
+<header class="clearfix">
+    <div class="wrapper">
+        <div id="logo" class="clearfix">
+            <a href="{{ SITEURL }}/index.html" id="name">
+                <h1>{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</h1>
+            </a>
+            <a href="http://blog.exbot.net">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.png" alt="ExBot's Blog"></a>
+            <a href="http://lamda.nju.edu.cn">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/lamda.png" alt="Lamda Lab"></a>
+            <a href="http://www.nju.edu.cn/">
+                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/nju.png" alt="Nanjing University"></a>
+        </div>
+        <nav class="float">
+            <ul id="nav" class="sf-menu">
+                {% if False %}
+                    <li {% if output_file[:5] == 'index' %}class="current-menu-item"{% endif %}><a
+                            href="{{ SITEURL }}/index.html">Home</a>
+                    </li>
+                {% endif %}
+                <li {% if output_file[:4] == 'blog' %}class="current-menu-item"{% endif %}><a
+                        href="{{ SITEURL }}/blog/index.html">Blog</a>
+                </li>
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    <li {% if output_file[:5] == 'pages' %}class="current-menu-item"{% endif %}><a
+                            href="{{ SITEURL }}/pages.html">Pages</a>
+                        <ul>
+                            {% for page in PAGES %}
+                                <li><a href="{{ SITEURL }}/{{ page.url }}"
+                                       {% if page.title == title %}class="current-menu-item"{% endif %}>{{ page.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+                {% if False %}
+                    <li {% if output_file[:5] == 'about' %}class="current-menu-item"{% endif %}><a
+                            href="{{ SITEURL }}/about.html">About</a>
+                    </li>
+                {% endif %}
+                <li class="divider-vertical"></li>
+                {% for cat, null in categories %}
+                    <li>
+                        <a href="{{ SITEURL }}/{{ cat.url }}">
+                            <i class="{{ 'icon-folder-open' if cat == category else 'icon-folder-close' }} icon-large"></i>{{ cat }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper clearfix">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</div>
+<!-- ENDS MAIN -->
+
+<footer>
+    <div class="wrapper">
+        <div class="footer-bottom">
+            <div class="left">
+                <script src="http://s19.cnzz.com/stat.php?id=5460084&web_id=5460084&show=pic"></script>
+                Powered by Pelican ...
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- superfish -->
+<link rel="stylesheet" media="screen" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/superfish.css"/>
+<!-- ENDS superfish -->
+
+<!-- prettyPhoto -->
+<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/prettyPhoto/css/prettyPhoto.css"
+      media="screen"/>
+<!-- ENDS prettyPhoto -->
+
+<!-- GOOGLE FONTS -->
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
+
+<!-- Flex Slider -->
+<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/flexslider.css">
+<!-- ENDS Flex Slider -->
+
+<!-- SKIN -->
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/skin.css"/>
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/reset.css"/>
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css"/>
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code.css"/>
+
+<!-- icons -->
+<link rel="shortcut icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.css"/>
+<link rel="stylesheet" media="all" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css"/>
+
+<!-- JS -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-1.6.4.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/css3-mediaqueries.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/custom.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/tabs.js"></script>
+
+<!-- superfish -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/superfish-1.4.8/js/hoverIntent.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/superfish-1.4.8/js/superfish.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/superfish-1.4.8/js/supersubs.js"></script>
+<!-- ENDS superfish -->
+
+<!-- prettyPhoto -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+<!-- ENDS prettyPhoto -->
+
+<!-- Flex Slider -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.flexslider-min.js"></script>
+<!-- ENDS Flex Slider -->
+
+<!-- modernizr -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/modernizr.js"></script>
+
+<!-- reply move form -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/moveform.js"></script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-36220570-2', 'yuanboshe.github.io');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

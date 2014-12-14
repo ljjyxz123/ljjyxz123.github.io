@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- post list -->
+    <div id="posts-list">
+        <h2 class="page-heading"><span>{% block blog_title %}{% endblock %}</span></h2>
+        {% block blog_content %}{% endblock %}
+    </div>
+    {% include 'partial/sidebar.html' %}
+
+    <!-- pagers -->
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+        <div class="clearfix">
+            <ul class="pager">
+                {% if articles_page.has_previous() %}
+                    {% set num = articles_page.previous_page_number() %}
+                    <li class="previous">
+                        <a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr;Previous</a>
+                    </li>
+                {% else %}
+                    <li class="previous active"><a href="#">&larr; Previous</a></li>
+                {% endif %}
+
+                {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+                    {% if num == articles_page.number %}
+                        <li class="active"><a href="#">{{ num }}</a></li>
+                    {% else %}
+                        <li><a href="{{ SITEURL }}/{{ page_name }}{{ num  if num > 1 else '' }}.html">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if articles_page.has_next() %}
+                    <li class="next">
+                        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a>
+                    </li>
+                {% else %}
+                    <li class="next active"><a href="#">&rarr; Next</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <!-- UJian Button BEGIN -->
+    <script type="text/javascript">var ujian_config = {target: 1};</script>
+    <script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&fade=1&uid=1803538"></script>
+    <a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;"/></a>
+    <!-- UJian Button END -->
+{% endblock content %}

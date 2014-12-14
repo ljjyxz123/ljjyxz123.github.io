@@ -1,0 +1,59 @@
+<aside id="sidebar">
+    <ul>
+    <!--
+        <li class="block li-0">
+            <script>
+                (function () {
+                    var cx = '013354436722569247875:iw6mtkjxvvy';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                            '//www.google.com/cse/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:search></gcse:search>
+        </li> -->
+        <li class="block li-0">
+            <a href="{{ SITEURL }}/blog/categories.html" title="Categories">
+                <i class="icon-folder-open icon-large"></i>Categories
+            </a>
+            <ul>
+                {% for cat, null in categories %}
+                    <li class="li-1">
+                        <a href="{{ SITEURL }}/{{ cat.url }}" title="{{ cat }}">
+                            <i class="{{ 'icon-folder-open' if cat == category else 'icon-folder-close' }} icon-large"></i>{{ cat }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="block li-0">
+            <p><a href="{{ SITEURL }}/blog/tags.html" title="Tags">
+                <i class="icon-tags icon-large"></i>Tags
+            </a></p>
+            {% for tag in tag_cloud %}
+                <span class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></span> ,
+            {% endfor %}
+        </li>
+        <li class="block li-0">
+            <a href="{{ SITEURL }}/blog/dates.html" title="Dates">
+                <i class="icon-calendar icon-large"></i>Dates
+            </a>
+        </li>
+        {% if LINKS %}
+            <li class="block li-0">
+                <i class="icon-external-link"></i>Links
+                <ul>
+                    {% for name, link in LINKS %}
+                        <li class="li-1"><a href="{{ link }}" title="{{ name }}"><i
+                                class="icon-external-link"></i>{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+    </ul>
+    <em id="corner"></em>
+</aside>
