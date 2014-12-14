@@ -83,7 +83,12 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	github: publish
+		cd $(OUTPUTDIR) && git add . ; 
+		cd $(OUTPUTDIR) && git pull origin master;
+		cd $(OUTPUTDIR) && git commit -m 'commit';
+		cd $(OUTPUTDIR) && git push origin master
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)

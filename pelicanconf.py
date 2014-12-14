@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = u'Brad Lucas'
 SITENAME = u'RoboTuring'
 SITEURL = ''
+THEME = 'bootstrap2'
 
 PATH = 'content'
 
