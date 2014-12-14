@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>30分钟搭建自己的TurtleBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Brad Lucas">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="RoboTuring ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">RoboTuring </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/misc.html">
+						<i class="icon-folder-open icon-large"></i>misc
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 30分钟搭建自己的TurtleBot">
+                                        30分钟搭建自己的TurtleBot
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2013-12-25T00:00:00+01:00">
+        <i class="icon-calendar"></i>周三 25 十二月 2013
+</abbr>
+<span class="label">By</span>
+<a href="/author/brad-lucas.html"><i class="icon-user"></i>Brad Lucas</a>
+<span class="label">Category</span>
+<a href="/category/misc.html"><i class="icon-folder-open"></i>misc</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/turtlebot.html"><i class="icon-tag"></i>turtlebot</a>
+	<a href="/tag/ros.html"><i class="icon-tag"></i>ros</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id10">TurtleBot的硬件组成</a></li>
+<li><a class="reference internal" href="#id3" id="id11">物品清单</a></li>
+<li><a class="reference internal" href="#id4" id="id12">组装过程</a><ul>
+<li><a class="reference internal" href="#id5" id="id13">装配底盘</a></li>
+<li><a class="reference internal" href="#mm" id="id14">装170mm铝合金型材</a></li>
+<li><a class="reference internal" href="#id6" id="id15">装配架子</a></li>
+<li><a class="reference internal" href="#id7" id="id16">安装数据线</a></li>
+<li><a class="reference internal" href="#id8" id="id17">安置摄像头</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9" id="id18">最后</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id10">TurtleBot的硬件组成</a></h2>
+<img alt="TurtleBot1" src="{image}turtlebot.jpg" />
+<p>TurtleBot是非常典型的移动机器人，其硬件结构清晰简洁：移动机器人底盘，架子，RGB-D摄像头，外加笔记本。第一代TurtleBot由iRobot Create扫地机器人底盘打造，第二代TurtleBot由Kobuki机器人底盘打造，他们最大的区别在于Kobuki底盘比iRobot Create底盘多了IMU（惯性测量）部分。自制TurtleBot，就是按照这个架构自制架子，搭建自己的移动机器人硬件平台，以及解决ROS软件控制问题。30分钟只是搭建硬件平台的时间，软件部分才是最耗时的，可以很负责任地告诉以为搞定全套TurtleBot平台只需要30分钟的人：你们上当了:)。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">物品清单</a></h2>
+<p>下面是主要物件清单：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">名称</th>
+<th class="head">备注</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>iRobot Create底盘</td>
+<td>目前只能海购，国内无售</td>
+</tr>
+<tr><td>ASUS Xtion pro Live摄像头</td>
+<td>比Kinect好用太多</td>
+</tr>
+<tr><td>笔记本</td>
+<td>至少两个USB口，内存4G，能装WIN7跑虚拟机就行</td>
+</tr>
+</tbody>
+</table>
+<p>下面是框架的清单：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">名称</th>
+<th class="head">备注</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>2020工业铝型材</td>
+<td>170mm*2+200mm*5+240mm*3=2060mm。
+2020表示截面为正方形的铝型材，边长20mm。
+2根170mm固定在底盘上，4根200mm用于架高，
+3根240mm为最上面的U形架，1根200mm用于安置摄像头。</td>
+</tr>
+<tr><td>2020角件</td>
+<td>12个。用于连接铝型材。</td>
+</tr>
+<tr><td>20系列M4 T型螺母</td>
+<td>24颗。M4表示螺纹型号，需配M4螺栓。</td>
+</tr>
+<tr><td>M4*10内六角螺栓</td>
+<td>24颗。M4表示螺纹型号，10表示螺纹部分长度为10mm。</td>
+</tr>
+<tr><td>M4圆形垫圈</td>
+<td>28片。</td>
+</tr>
+<tr><td>M4弹簧垫片</td>
+<td>28片。</td>
+</tr>
+<tr><td>美制内六角螺栓6#-32*1</td>
+<td>4颗。由于irobot create底盘螺纹孔为美标，与中国
+国标不同，故框架与底盘固定必须使用美制螺丝。在
+这里，6#表示螺纹直径，32表示牙距，1表示长度。
+不可配错。</td>
+</tr>
+</tbody>
+</table>
+<p>制作架子的材料如下图：</p>
+<img alt="框架材料" src="{image}frame1.jpg" />
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">2020工业铝型材中的两根170mm铝型材需要与底盘固定，故各需打两个M3.5的孔（美制#6螺栓外径尺寸相当于国标M3.5，故可以用M3.5的钻头钻孔）。一般的铝型材卖家都会提供钻孔服务，图纸如下：</p>
+</div>
+<img alt="170mm铝型材" src="{image}170mm.jpg" />
+<p>配件清单：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">名称</th>
+<th class="head">备注</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>镍氢AA充电电池+充电器</td>
+<td>iRobot Create底盘是不附带电池的，只有一个12
+节AA电池串联的电池盒。</td>
+</tr>
+<tr><td>USB-RS232转接头</td>
+<td>iRobot Create附带的数据线对外接口是RS232母头
+串口，而一般电脑已经没有了串口，需要USB
+转RS232模块与之相连接。</td>
+</tr>
+</tbody>
+</table>
+<p>除了上述所有组件外，还必须保证手里有相应的工具，如起子套件。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id12">组装过程</a></h2>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id13">装配底盘</a></h3>
+<p>iRboto Create底盘基本套件开封后如下：</p>
+<img alt="iRobot Create" src="{image}create1.jpg" />
+<p>绿色的是电池盒（无电池），右上角的是配件，右下角的是数据线。按照说明书，很轻松就能装配好底盘。</p>
+<img alt="电池盒" src="{image}power.jpg" />
+<p>将12节AA电池先充满电，用起子卸下四颗电池盒上的固定螺丝，打开电池仓即可将电池装入电池盒。</p>
+<div class="tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">官方说明书上指示，电池需要使用普通的非可充电AA电池，不要使用非官方提供的充电电池。这纯粹是官方的唬人手段，每节普通AA电池是1.5V，而镍氢AA充电电池是1.2V，虽然电压并不充足，但还是可以用的。而官方提供的可充电池组实际上也是大容量的镍氢充电电池。</p>
+</div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">镍氢电池可以随意折腾，但如果想改装成锂电池，则比较危险，不要轻易尝试。</p>
+</div>
+</div>
+<div class="section" id="mm">
+<h3><a class="toc-backref" href="#id14">装170mm铝合金型材</a></h3>
+<img alt="iRobot Create" src="{image}create2.jpg" />
+<p>用4颗美制内六角螺栓6#-32*1将两根170mm铝合金型材固定在iRobot Create底盘上，螺帽处最好加上弹簧垫片和普通圆形垫片。</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id15">装配架子</a></h3>
+<p>铝合金型材的每个接头处需要使用一个角件，两颗M4*10内六角螺栓，两颗M4 T型螺母，两片弹簧垫圈和两片圆形垫片。架子的装配是很耗费时间的，可以先将四根200mm的铝合金型材固定在已经装好的两根170mm型材上，然后在装配最上面的3根240mm型材，也可以先按照下图的方式装配。</p>
+<img alt="Frame" src="{image}frame2.jpg" />
+<p>最后装配中间固定摄像头用的200mm型材。具体效果参考最后的图片。</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id16">安装数据线</a></h3>
+<p>将USB-RS232转接头与iRobot Create的数据线相连接，并插入iRobot Create底盘（底盘右侧有个活动的盖子，掀开即可看到数据线接口）。</p>
+<p>数据线也可以自己用USB-TTL模块做一根，如下图：</p>
+<img alt="数据线" src="{image}cables.jpg" />
+<p>左边的是USB-RS232转接头与iRobot Create的数据线相连接的数据线，右边的是自己用USB-TTL模块做的数据线。自己做数据线的缺点就是得自己将3根插针——发送针，接收针，接地插入底盘上对应的TTL数据口。</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id17">安置摄像头</a></h3>
+<p>用尼龙扎带或者绳子将摄像头绑在200mm铝型材上面即可。</p>
+<p>最后的效果如图：</p>
+<img alt="TurtleBot" src="{image}main.jpg" />
+<p>最后只需要将笔记本放在小车上面，用数据线将底盘与笔记本USB接口相连，将Xtion pro Live深度摄像头与笔记本USB接口相连即可。</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">笔记本的USB口最好是USB2.0口，可能现有的驱动不支持USB3.0。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id18">最后</a></h2>
+<p>关于TurtleBot的几个网站：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>平台官网</td>
+<td><a class="reference external" href="http://www.turtlebot.com/">http://www.turtlebot.com/</a></td>
+</tr>
+<tr><td>ROS软件包</td>
+<td><a class="reference external" href="http://wiki.ros.org/Robots/TurtleBot">http://wiki.ros.org/Robots/TurtleBot</a></td>
+</tr>
+<tr><td>ROS GitHub</td>
+<td><a class="reference external" href="https://github.com/turtlebot">https://github.com/turtlebot</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/misc.html">
+    <i class="icon-folder-open icon-large"></i>misc
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-1">
+    <a href="/tag/turtlebot.html">
+        <i class="icon-tag icon-large"></i>turtlebot
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/ros.html">
+        <i class="icon-tag icon-large"></i>ros
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/xtion.html">
+        <i class="icon-tag icon-large"></i>xtion
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
