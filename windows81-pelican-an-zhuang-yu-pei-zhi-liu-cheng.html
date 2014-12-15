@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Windows8.1 Pelican 安装与配置流程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Brad Lucas">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="RoboTuring ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">RoboTuring </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/category/misc.html">
+						<i class="icon-folder-open icon-large"></i>misc
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="/category/webqian-duan-code.html">
+						<i class="icon-folder-open icon-large"></i>WEB前端&Code
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Windows8.1 Pelican 安装与配置流程">
+                                        Windows8.1 Pelican 安装与配置流程
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2014-02-03T00:00:00+08:00">
+        <i class="icon-calendar"></i>2014-02-03
+</abbr>
+<span class="label">By</span>
+<a href="/author/brad-lucas.html"><i class="icon-user"></i>Brad Lucas</a>
+<span class="label">Category</span>
+<a href="/category/webqian-duan-code.html"><i class="icon-folder-open"></i>WEB前端&Code</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/python.html"><i class="icon-tag"></i>python</a>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/github.html"><i class="icon-tag"></i>github</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#pelican" id="id6">Pelican</a><ul>
+<li><a class="reference internal" href="#id2" id="id7">安装配置pelican</a></li>
+<li><a class="reference internal" href="#id3" id="id8">安装依赖包</a></li>
+<li><a class="reference internal" href="#id4" id="id9">生成pelican项目</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#git-for-github" id="id10">Git工具 for GitHub</a><ul>
+<li><a class="reference internal" href="#github-for-windows" id="id11">GitHub for Windows</a></li>
+<li><a class="reference internal" href="#tortoisegit" id="id12">tortoisegit</a></li>
+<li><a class="reference internal" href="#id5" id="id13">加载私有密钥</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pelican">
+<h2><a class="toc-backref" href="#id6">Pelican</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id7">安装配置pelican</a></h3>
+<p>打开PowerShell，输入下面的命令：</p>
+<div class="highlight"><pre>mkvirtualenv pelicanenv --no-site-packages
+pip install pelican
+</pre></div>
+<p>第1条命令创建名为pelicanenv的Python虚拟环境；第2命令使用pip安装pelican，经过一长串的warnning后，应该可以顺利安装完毕。</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id8">安装依赖包</a></h3>
+<p>这里主要是安装Fabric，以及fab命令需要的pycrypto和ecdsa。在PowerShell中输入下面的命令：</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">保证自己当前处于前面建立的pelicanenv虚拟环境下，否则就装到默认Python环境中去了。看PowerShell的光标，如果显示诸如 <em>(pelicanenv)PS D:&gt;</em> 字样就表示在pelicanenv环境下，否则使用 <tt class="docutils literal">workon pelicanenv</tt> 命令进入pelicanenv环境中。</p>
+</div>
+<div class="highlight"><pre>$env:VS90COMNTOOLS=$env:VS120COMNTOOLS
+pip install Fabric
+pip install pycrypto
+pip install ecdsa
+</pre></div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">上面命令中的 <em>$env:VS120COMNTOOLS</em> 需要根据你的Visual Studio进行修改，如果你安装了VS2010则跳过，不需要修改；如果你装了VS2012，则填写 <tt class="docutils literal"><span class="pre">$env:VS90COMNTOOLS=$env:VS110COMNTOOLS</span></tt>；如果你装了VS2013，则填写 <tt class="docutils literal"><span class="pre">$env:VS90COMNTOOLS=$env:VS120COMNTOOLS</span></tt> 。否则后面安装pycrypto会出现 <em>error: Unable to find vcvarsall.bat</em> 的错误。 (refer <a class="reference external" href="http://blog.csdn.net/secretx/article/details/17472107">彻底解决 error: Unable to find vcvarsall.bat</a> )</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id9">生成pelican项目</a></h3>
+<p><tt class="docutils literal">cd D:\</tt> 来到D盘根目录，输入 <tt class="docutils literal"><span class="pre">pelican-quickstart</span> <span class="pre">-p</span> testpelican</tt> 来快速建立名为testpelican的项目，测试用，其他就随意填写了，一路配置下来，则会在D盘看到“testpelican”文件夹，即为自己的pelican项目。</p>
+<p><tt class="docutils literal">cd testpelican</tt> 进入testpelican目录，输入下面的命令：</p>
+<div class="highlight"><pre>fab build
+fab serve
+</pre></div>
+<p>则会看到如图所示的结果，表示本地server开启。</p>
+<img alt="powershell" src="{image}powershell.jpg" />
+<p>打开浏览器，输入 <tt class="docutils literal">localhost:8000</tt>，就能看到生成的网页了。</p>
+<img alt="pelican" src="{image}pelican.jpg" />
+<p>想了解更多，参考Pelican官方文档：<a class="reference external" href="http://docs.getpelican.com/en/latest/">http://docs.getpelican.com/en/latest/</a></p>
+</div>
+</div>
+<div class="section" id="git-for-github">
+<h2><a class="toc-backref" href="#id10">Git工具 for GitHub</a></h2>
+<p>怎么在GitHub上面建博，网文一大堆，这里只记录环境的配置流程。假设你已经在GitHub上面有了自己的仓库，并且已经配置好自己的公共密钥，私有密钥保存在PC本地。</p>
+<div class="section" id="github-for-windows">
+<h3><a class="toc-backref" href="#id11">GitHub for Windows</a></h3>
+<p>GitHub for Windows是GitHub官方图形界面工具，使用方便，但对比功能比较弱。习惯命令操作的用Git Shell也不错。下载地址：<a class="reference external" href="http://windows.github.com/">http://windows.github.com/</a></p>
+</div>
+<div class="section" id="tortoisegit">
+<h3><a class="toc-backref" href="#id12">tortoisegit</a></h3>
+<p>喜欢使用图形界面操作，尤其是TortoiseSVN的老粉丝，应该更喜欢TortoisGit。</p>
+<p>下载并安装tortoisegit：<a class="reference external" href="http://code.google.com/p/tortoisegit/wiki/Download">http://code.google.com/p/tortoisegit/wiki/Download</a>
+下载并安装msysgit：<a class="reference external" href="http://code.google.com/p/msysgit/downloads/list">http://code.google.com/p/msysgit/downloads/list</a></p>
+<div class="tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">在PowerShell中使用 <tt class="docutils literal">regsvr32 /u <span class="pre">&quot;D:\Program</span> Files <span class="pre">(x86)\Git\git-cheetah\git_shell_ext64.dll&quot;</span></tt> 命令可以去掉Git Bash的右键菜单选项，装好msysgit后，右键文件夹会有一长条Git选项，清除后清爽很多。其中路径为自己安装msysgit的路径，如果装的是32位的，dll名还要改为 <strong>git_shell_ext.dll</strong>。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id13">加载私有密钥</a></h3>
+<p>如果不加载私有密钥，可以克隆你的GitHub仓库到本地，但是无法提交更新到GitHub。假设你已经将GitHub远程仓库克隆到本地，用资源管理器打开本地的仓库，右键选择 TortoiseGit -&gt; Settings，在打开的窗口中选择 Git -&gt; Remote -&gt; Origin，在Putty Key里面填入自己的私有密钥（对应的公共密钥已经在GitHub端配置好）。</p>
+<img alt="turtoisegit settings" src="{image}turtoisegit.jpg" />
+</div>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://hi.baidu.com/ljjyxz123"><i class="icon-external-link"></i>Brad Lucas</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/misc.html">
+    <i class="icon-folder-open icon-large"></i>misc
+</a>
+</li>
+<li>
+<a href="/category/webqian-duan-code.html">
+    <i class="icon-folder-open icon-large"></i>WEB前端&Code
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-2">
+    <a href="/tag/restructuredtext.html">
+        <i class="icon-tag icon-large"></i>reStructuredText
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/strong-ai.html">
+        <i class="icon-tag icon-large"></i>Strong AI
+    </a>
+</li>
+<li class="tag-2">
+    <a href="/tag/python.html">
+        <i class="icon-tag icon-large"></i>python
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/ai.html">
+        <i class="icon-tag icon-large"></i>AI
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/ren-gong-zhi-neng.html">
+        <i class="icon-tag icon-large"></i>人工智能
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/pelican.html">
+        <i class="icon-tag icon-large"></i>pelican
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/github.html">
+        <i class="icon-tag icon-large"></i>github
+    </a>
+</li>
+<li class="tag-2">
+    <a href="/tag/web.html">
+        <i class="icon-tag icon-large"></i>web
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/sphinx.html">
+        <i class="icon-tag icon-large"></i>sphinx
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

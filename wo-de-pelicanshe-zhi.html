@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>我的Pelican设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Brad Lucas">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="RoboTuring ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">RoboTuring </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/category/misc.html">
+						<i class="icon-folder-open icon-large"></i>misc
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="/category/webqian-duan-code.html">
+						<i class="icon-folder-open icon-large"></i>WEB前端&Code
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 我的Pelican设置">
+                                        我的Pelican设置
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2014-02-03T00:00:00+08:00">
+        <i class="icon-calendar"></i>2014-02-03
+</abbr>
+<span class="label">By</span>
+<a href="/author/brad-lucas.html"><i class="icon-user"></i>Brad Lucas</a>
+<span class="label">Category</span>
+<a href="/category/webqian-duan-code.html"><i class="icon-folder-open"></i>WEB前端&Code</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#image" id="id4">增加image相对路径功能</a></li>
+<li><a class="reference internal" href="#batpelicanenv" id="id5">BAT批处理文件启动pelicanenv虚拟环境</a></li>
+<li><a class="reference internal" href="#id2" id="id6">调试Pelican</a></li>
+<li><a class="reference internal" href="#id3" id="id7">其他一些功能定制</a></li>
+</ul>
+</div>
+<div class="section" id="image">
+<h2><a class="toc-backref" href="#id4">增加image相对路径功能</a></h2>
+<p>在编写文档的时候经常需要插入图片，而pelican现在的做法是使用类似 <em>![Alt Text]({filename}/images/han.jpg)</em> 的格式，用{filename} replacer来指代内部引文路径。我习惯将某一篇博文的图片存进一个单独的文件夹，使用{filename} replacer不得不在后面跟上长长的rst文件名，以后修改起来也不好批量处理。</p>
+<p>于是我增加了使用{image} replacer，在rst文档中，只要使用下面的格式即可插入图片。即rst文档保存为 <em>/content/blog/%catogery%/%rst_file_name%.rst</em> 而图片保存在 <em>/content/images/%rst_file_name%/</em> 路径下。在rst文档中引用图片的格式很简单，如下:</p>
+<pre class="literal-block">
+.. image:: {image}image_name.jpg
+        :alt: image_name
+</pre>
+<p>我想通过pelican插件来增加这个功能，尽量不去“破坏”pelican源码。但是pelican对插件功能描述的文档非常欠缺，导致你无法通过网络知道自己想用的插件到底是否存在。外加pelican没有针对这种功能的插件signal，修改源码应该是最合适的途径。作者也对于{filename} replacer写道:</p>
+<pre class="literal-block">
+# we support only filename for now. the plan is to support
+# categories, tags, etc. in the future, but let's keep things
+# simple for now.
+</pre>
+<p>我们有理由通过修改源码增加{image} replacer。</p>
+<p>找到下面这段代码:</p>
+<pre class="literal-block">
+elif what == 'tag':
+        origin = Tag(value, self.settings).url
+</pre>
+<p>找到pelican源码目录下的 <em>contents.py</em> 文件，例如我的是 <em>D:/Python/Envs/pelicanenv/Lib/site-packages/pelican/contents.py</em> 在后面添加下面的代码即可：</p>
+<div class="highlight"><pre><span class="k">elif</span> <span class="n">what</span> <span class="o">==</span> <span class="s">&#39;image&#39;</span><span class="p">:</span> <span class="c"># yuanboshe added. for images in blog content</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&#39;([-\w]*).\w*$&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                <span class="n">fname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">siteurl</span><span class="p">,</span> <span class="s">&quot;images&quot;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Unable to find {fn}, skipping url&quot;</span>
+                                           <span class="s">&quot; replacement&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">origin</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="batpelicanenv">
+<h2><a class="toc-backref" href="#id5">BAT批处理文件启动pelicanenv虚拟环境</a></h2>
+<p>为了保证Python环境的干净，所有pelican相关以来包装在名为pelicanenv的virtualenv虚拟环境内。每次在pelican项目里面写完文档，想用pelican生成静态站点，都需要进入pelicanenv虚拟环境，然后执行生成命令。进入pelicanenv虚拟环境过程中还需要几条命令，为了便利，使用BAT批处理命令直接进入，双击.bat文件即可。</p>
+<p>在pelican项目的根目录新建bat文件 <em>start-env.bat</em> ，内容如下：</p>
+<div class="highlight"><pre><span class="k">call</span> D:\Python\Envs\pelicanenv\Scripts\activate.bat
+cmd
+</pre></div>
+<p>其中 <em>activate.bat</em> 路径改为自己的pelican虚拟环境的路径。</p>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">调试Pelican</a></h2>
+<p>如果想自己改pelican代码，或者是探索工作原理，调试环境必不可少。其实pelican的调试非常简单，在pelican项目的根目录新建一个 <em>start.py</em> 的Python文件，在文件里添加下面的代码：</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pelican</span> <span class="kn">import</span> <span class="n">main</span>
+<span class="c"># For PyCharm to debug pelican, added by yuanboshe</span>
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p>保存。调试的时候使用IDE调试这个 <em>start.py</em> 文件即可。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">其他一些功能定制</a></h2>
+<p>尽量使用插件方式修改，或者添加自己的功能，很多参数或者代码也可以放在配置文件里面实现，最大的工作量似乎主要集中在了Jinja2模板的编写和扩展上。从Ruby的Nanoc到Python的Pelican，都是定制化很强的静态站点生成工具，只可惜相关文档很少，只能靠自己去发掘定制方法了。</p>
+<p>还有很多自己定制的功能暂时就不写了...</p>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://hi.baidu.com/ljjyxz123"><i class="icon-external-link"></i>Brad Lucas</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/misc.html">
+    <i class="icon-folder-open icon-large"></i>misc
+</a>
+</li>
+<li>
+<a href="/category/webqian-duan-code.html">
+    <i class="icon-folder-open icon-large"></i>WEB前端&Code
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-2">
+    <a href="/tag/restructuredtext.html">
+        <i class="icon-tag icon-large"></i>reStructuredText
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/strong-ai.html">
+        <i class="icon-tag icon-large"></i>Strong AI
+    </a>
+</li>
+<li class="tag-2">
+    <a href="/tag/python.html">
+        <i class="icon-tag icon-large"></i>python
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/ai.html">
+        <i class="icon-tag icon-large"></i>AI
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/ren-gong-zhi-neng.html">
+        <i class="icon-tag icon-large"></i>人工智能
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/pelican.html">
+        <i class="icon-tag icon-large"></i>pelican
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/github.html">
+        <i class="icon-tag icon-large"></i>github
+    </a>
+</li>
+<li class="tag-2">
+    <a href="/tag/web.html">
+        <i class="icon-tag icon-large"></i>web
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/sphinx.html">
+        <i class="icon-tag icon-large"></i>sphinx
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

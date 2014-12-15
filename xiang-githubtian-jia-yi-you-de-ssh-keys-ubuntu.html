@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>RoboTuring</title>
+    <title>向GitHub添加已有的SSH Keys (Ubuntu)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Brad Lucas">
@@ -69,7 +69,7 @@
 						<i class="icon-folder-open icon-large"></i>misc
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="/category/webqian-duan-code.html">
 						<i class="icon-folder-open icon-large"></i>WEB前端&Code
 					</a>
@@ -90,28 +90,85 @@
       <div class="row">
         <div class="span9" id="content">
 <section id="content">
-<h1>Archives for RoboTuring</h1>
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 向GitHub添加已有的SSH Keys (Ubuntu)">
+                                        向GitHub添加已有的SSH Keys (Ubuntu)
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2014-05-09T00:00:00+08:00">
+        <i class="icon-calendar"></i>2014-05-09
+</abbr>
+<span class="label">By</span>
+<a href="/author/brad-lucas.html"><i class="icon-user"></i>Brad Lucas</a>
+<span class="label">Category</span>
+<a href="/category/webqian-duan-code.html"><i class="icon-folder-open"></i>WEB前端&Code</a>.
 
-<dl>
-	<dt>Mon, 15 Dec 2014</dt>
-	<dd><a href='AI-And-Human-Final-Target-en.html'>人工智能的未来与人类的终极目标</a></dd>
-	<dt>2014-08-31</dt>
-	<dd><a href='ben-bo-zui-jin-ji-ge-yue-jia-zai-huan-man-de-shuo-ming.html'>本博最近几个月加载缓慢的说明</a></dd>
-	<dt>2014-05-09</dt>
-	<dd><a href='xiang-githubtian-jia-yi-you-de-ssh-keys-ubuntu.html'>向GitHub添加已有的SSH Keys (Ubuntu)</a></dd>
-	<dt>2014-04-03</dt>
-	<dd><a href='qiang-da-de-xiang-ying-shi-she-ji-gong-ju-bootstrap.html'>强大的响应式设计工具Bootstrap</a></dd>
-	<dt>2014-02-03</dt>
-	<dd><a href='windows81-pelican-an-zhuang-yu-pei-zhi-liu-cheng.html'>Windows8.1 Pelican 安装与配置流程</a></dd>
-	<dt>2014-02-03</dt>
-	<dd><a href='wo-de-pelicanshe-zhi.html'>我的Pelican设置</a></dd>
-	<dt>2014-02-01</dt>
-	<dd><a href='windows-pythonxu-ni-huan-jing-pei-zhi-distribute-pip-virtualenv-virtualenvwrapper-powershell.html'>Windows Python虚拟环境配置（Distribute + pip + virtualenv + virtualenvwrapper-powershell）</a></dd>
-	<dt>2013-10-15</dt>
-	<dd><a href='restructuredtext-sphinxde-yi-xie-xue-xi-zi-yuan.html'>reStructuredText + Sphinx的一些学习资源</a></dd>
-	<dt>2013-10-10</dt>
-	<dd><a href='cong-wen-dang-zheng-li-kan-ge-ren-webzhan-dian-fang-an-de-xuan-ze.html'>从文档整理看个人web站点方案的选择</a></dd>
-</dl>
+
+<span class="label">Tags</span>
+	<a href="/tag/github.html"><i class="icon-tag"></i>github</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id3">科普</a></li>
+<li><a class="reference internal" href="#keysssh" id="id4">生成Keys并配置SSH</a></li>
+<li><a class="reference internal" href="#keys" id="id5">添加已有的Keys</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id3">科普</a></h2>
+<p>GitHub常用的两种库提交方式：HTTPS和SSH。通俗一点讲，如果你clone的是别人的库，那么使用HTTPS方式；如果你clone的是自己的库，那么最好用SSH方式。</p>
+<p>HTTPS方式：安全性比SSH方式低，但是简单方便。clone的时候没有任何障碍，直接输入clone命令即可，每次提交的时候需要输入用户名和密码。所以HTTPS方式用来clone别人的存储库最合适了，如果是用来提交自己的存储库，每次提交都要输入用户名和密码太麻烦。</p>
+<p>SSH方式：安全性比HTTPS高，基于非对称密钥，配置密钥的步骤麻烦点，但是安全性高，提交时也方便。clone的时候，如果你没有配置自己的SSH私钥，那么是不能clone别人的存储库的，如果配置了则可以直接clone；提交的时候，如果你配置进SSH的密钥对中的公钥在GitHub上该存储库的公钥列表里，那么你可以直接提交，不需要输入用户名和密钥，因为你的私钥已经代表了你的身份。所以对于经常做提交操作的用户，在系统中配置SSH是很必要的事情。</p>
+<p>PS：别诧异为什么我很了解信息安全，因为我的本科毕业论文就是在信息所做的，开发过公钥基础设施CA中心。</p>
+</div>
+<div class="section" id="keysssh">
+<h2><a class="toc-backref" href="#id4">生成Keys并配置SSH</a></h2>
+<p>请参考官网教程：<a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a></p>
+<p>总结一下就是下面几个命令：</p>
+<div class="highlight"><pre>ssh-keygen -f github_ubuntu -t rsa -C &quot;yuanboshe@yeah.net&quot;
+ssh-add github_ubuntu
+ssh -T git@github.com
+</pre></div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal">ssh <span class="pre">-T</span> git&#64;github.com</tt> 那步要注意输入 <strong>yes</strong> 才能继续。</p>
+</div>
+</div>
+<div class="section" id="keys">
+<h2><a class="toc-backref" href="#id5">添加已有的Keys</a></h2>
+<p>这篇博文的point就是：不要每次到一台新机器就重新生成Keys并重新配置，这样做是很傻的，为什么不把已经在GitHub上配好的密钥对保存下来，有新系统需要配置SSH时直接拷贝过去呢？</p>
+<p>例如在前面的步骤中我生成了一对密钥，命名为“github_ubuntu”，则私钥的文件名为 <em>github_ubuntu</em> ，公钥的文件名为 <em>github_ubuntu.pub</em> ，将公钥配置进GitHub后，就把这对密钥文件保存下来备用。</p>
+<p>在新系统中，输入命令 <tt class="docutils literal">ssh <span class="pre">-T</span> git&#64;github.com</tt> ，会询问是否继续连接：</p>
+<blockquote>
+The authenticity of host 'github.com (192.30.252.131)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes</blockquote>
+<p>输入 <strong>yes</strong> 确认，则可能出现下面提示：</p>
+<blockquote>
+Warning: Permanently added 'github.com,192.30.252.131' (RSA) to the list of known hosts.
+Permission denied (publickey).</blockquote>
+<p>这是理所当然的，还什么都没做呢。</p>
+<p>输入命令 <tt class="docutils literal">nautilus <span class="pre">~/.ssh/</span></tt> 打开 <em>.ssh</em> 文件夹，然后将你的密钥对文件（我的是 <em>github_ubuntu</em> 和 <em>github_ubuntu.pub</em>）复制粘贴进去。</p>
+<p>然后再输入命令 <tt class="docutils literal">ssh <span class="pre">-T</span> git&#64;github.com</tt> ，应该可以看到下面的结果：</p>
+<blockquote>
+Warning: Permanently added the RSA host key for IP address '192.30.252.129' to the list of known hosts.
+Hi yuanboshe! You've successfully authenticated, but GitHub does not provide shell access.</blockquote>
+<p>如果你的私钥文件进行过加密，这个步骤还会要求你输入私钥文件的访问密码。</p>
+<p>就这么简单，别再重新生成密钥对以及向GitHub公钥列表中添加新的公钥了。</p>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
 </section>
         </div><!--/span-->
 

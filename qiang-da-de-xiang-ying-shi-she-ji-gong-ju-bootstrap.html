@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>RoboTuring</title>
+    <title>强大的响应式设计工具Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Brad Lucas">
@@ -69,7 +69,7 @@
 						<i class="icon-folder-open icon-large"></i>misc
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="/category/webqian-duan-code.html">
 						<i class="icon-folder-open icon-large"></i>WEB前端&Code
 					</a>
@@ -90,28 +90,78 @@
       <div class="row">
         <div class="span9" id="content">
 <section id="content">
-<h1>Archives for RoboTuring</h1>
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 强大的响应式设计工具Bootstrap">
+                                        强大的响应式设计工具Bootstrap
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2014-04-03T00:00:00+08:00">
+        <i class="icon-calendar"></i>2014-04-03
+</abbr>
+<span class="label">By</span>
+<a href="/author/brad-lucas.html"><i class="icon-user"></i>Brad Lucas</a>
+<span class="label">Category</span>
+<a href="/category/webqian-duan-code.html"><i class="icon-folder-open"></i>WEB前端&Code</a>.
 
-<dl>
-	<dt>Mon, 15 Dec 2014</dt>
-	<dd><a href='AI-And-Human-Final-Target-en.html'>人工智能的未来与人类的终极目标</a></dd>
-	<dt>2014-08-31</dt>
-	<dd><a href='ben-bo-zui-jin-ji-ge-yue-jia-zai-huan-man-de-shuo-ming.html'>本博最近几个月加载缓慢的说明</a></dd>
-	<dt>2014-05-09</dt>
-	<dd><a href='xiang-githubtian-jia-yi-you-de-ssh-keys-ubuntu.html'>向GitHub添加已有的SSH Keys (Ubuntu)</a></dd>
-	<dt>2014-04-03</dt>
-	<dd><a href='qiang-da-de-xiang-ying-shi-she-ji-gong-ju-bootstrap.html'>强大的响应式设计工具Bootstrap</a></dd>
-	<dt>2014-02-03</dt>
-	<dd><a href='windows81-pelican-an-zhuang-yu-pei-zhi-liu-cheng.html'>Windows8.1 Pelican 安装与配置流程</a></dd>
-	<dt>2014-02-03</dt>
-	<dd><a href='wo-de-pelicanshe-zhi.html'>我的Pelican设置</a></dd>
-	<dt>2014-02-01</dt>
-	<dd><a href='windows-pythonxu-ni-huan-jing-pei-zhi-distribute-pip-virtualenv-virtualenvwrapper-powershell.html'>Windows Python虚拟环境配置（Distribute + pip + virtualenv + virtualenvwrapper-powershell）</a></dd>
-	<dt>2013-10-15</dt>
-	<dd><a href='restructuredtext-sphinxde-yi-xie-xue-xi-zi-yuan.html'>reStructuredText + Sphinx的一些学习资源</a></dd>
-	<dt>2013-10-10</dt>
-	<dd><a href='cong-wen-dang-zheng-li-kan-ge-ren-webzhan-dian-fang-an-de-xuan-ze.html'>从文档整理看个人web站点方案的选择</a></dd>
-</dl>
+
+<span class="label">Tags</span>
+	<a href="/tag/web.html"><i class="icon-tag"></i>web</a>
+	<a href="/tag/github.html"><i class="icon-tag"></i>github</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id4">问题分析</a></li>
+<li><a class="reference internal" href="#bootstrap-font-awesome-cdn" id="id5">Bootstrap + Font Awesome 简单的CDN加载</a></li>
+<li><a class="reference internal" href="#id3" id="id6">一些资源</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">问题分析</a></h2>
+<p>用YSlow分析了下，之前主要页面内容展示慢主要有下面几个原因：</p>
+<ul class="simple">
+<li>http请求过多</li>
+<li>font文件挂载在github空间，很多通用的css, js文件都是挂在github下而非CDN方式放在CDN服务器端</li>
+<li>大量冗余css和js，html布局不佳，css没有放在最前端</li>
+<li>大量标志图片</li>
+</ul>
+<p>解决办法当然是重构html，精简css；因为用了bootstrap和font awesome，js全部删光，css通过bootstrap的html class属性定制；用了CDN服务，主要的css, js都在CDN服务器端；因为用了awesome，图片也减少了一半多。</p>
+</div>
+<div class="section" id="bootstrap-font-awesome-cdn">
+<h2><a class="toc-backref" href="#id5">Bootstrap + Font Awesome 简单的CDN加载</a></h2>
+<p>通过CDN服务在html里面加载Bootstrap + Font Awesome太简洁了！</p>
+<p>head部分添加下面两句：</p>
+<div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+<p>footer后面添加下面几句：</p>
+<div class="highlight"><pre><span class="c">&lt;!-- jQuery (necessary for Bootstrap&#39;s JavaScript plugins) --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+<p>OK了，Bootstrap + Font Awesome里面的东西随便用！</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">一些资源</a></h2>
+<p>Bootstrap框架相关工具大集合：<a class="reference external" href="http://www.bootcss.com/">http://www.bootcss.com/</a></p>
+<p>HTML + CSS编码规范：<a class="reference external" href="http://codeguide.bootcss.com/">http://codeguide.bootcss.com/</a></p>
+<p>Bootstrap文档：<a class="reference external" href="http://v3.bootcss.com/getting-started/">http://v3.bootcss.com/getting-started/</a></p>
+<p>Font Awesome文档：<a class="reference external" href="http://fontawesome.io/">http://fontawesome.io/</a></p>
+<p>Bootstrap中文网开放CDN服务：<a class="reference external" href="http://open.bootcss.com/">http://open.bootcss.com/</a></p>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
 </section>
         </div><!--/span-->
 
