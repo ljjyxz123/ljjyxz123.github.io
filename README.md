@@ -1,5 +1,6 @@
 ljjyxz123.github.io
 ===================
 
-.. code:: python
+.. code-block:: ubuntu
+
   printf("RoboTuring\n");
