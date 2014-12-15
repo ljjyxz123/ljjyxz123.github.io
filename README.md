@@ -1,5 +1,5 @@
 ljjyxz123.github.io
 ===================
 
-.. code:: c++
+.. code:: python
   printf("RoboTuring\n");
