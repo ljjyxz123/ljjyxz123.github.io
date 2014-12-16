@@ -1,5 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/exbot-xi-platform.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 15 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>ExBot XI开发札记(一)ExBot XI测试</title><link>/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html</link><description>&lt;p&gt;打算记录下来玩的过程，以及自己开发的一些实验demo。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/exbot-xi-platform.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>ExBot XI开发札记(二)iRobot Create底盘测试</title><link>/blog/2014-12-Exbot-XI-Development-2-iRobot-Create-Test.html</link><description>&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id4"&gt;遥控控制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#node" id="id5"&gt;通过编写node代码控制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id6"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;遥控控制&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;这部分请参考：Exbot xi开发札记（一）Exbot xi测试(&lt;a class="reference external" href="http://ljjyxz123.github.io/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html"&gt;http://ljjyxz123.github.io/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="node"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;通过编写node代码控制&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;先上代码：
+.. code-block:: cpp&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#include &amp;lt;ros/ros.h&amp;gt;
+#include &amp;lt;signal.h&amp;gt;
+#include &amp;lt;geometry_msgs/Twist.h&amp;gt;&lt;/p&gt;
+&lt;p&gt;ros::Publisher cmdVelPub;&lt;/p&gt;
+&lt;p&gt;void shutdown(int sig)&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;{&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;cmdVelPub.publish(geometry_msgs::Twist());&lt;/p&gt;
+&lt;p&gt;ROS_INFO(&amp;quot;exbot example move cpp ended!&amp;quot;);&lt;/p&gt;
+&lt;p class="last"&gt;ros::shutdown();&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;int main(int argc, char “**”argv)&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;{&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;ros::init(argc, argv, &amp;quot;exbotxi_example_move&amp;quot;);
+std::string topic = &amp;quot;cmd_vel&amp;quot;;
+ros::NodeHandle node;
+cmdVelPub = node.advertise&amp;lt;geometry_msgs::Twist&amp;gt;(topic, 1);
+ros::Rate loopRate(50);
+signal(SIGINT, shutdown);
+ROS_INFO(&amp;quot;exbot_example_move cpp start...&amp;quot;);&lt;/p&gt;
+&lt;p&gt;int rate = 50;
+double linear_speed = 0.2;
+double goal_distance = 1.0;
+double linear_duration = goal_distance / linear_speed;&lt;/p&gt;
+&lt;p&gt;double angular_speed = 1.0;
+double goal_angle = 3.14/ 2.0;
+double angular_duration = goal_angle / angular_speed;&lt;/p&gt;
+&lt;p&gt;geometry_msgs::Twist speed;
+//while(ros::ok())
+for(int i=0; i&amp;lt;1; i++)&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;{&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;speed = geometry_msgs::Twist();&lt;/p&gt;
+&lt;p&gt;int ticks = int(linear_duration * rate);
+speed.linear.x = linear_speed;
+//speed.angular.z = angular_speed;&lt;/p&gt;
+&lt;p&gt;int t = 0;
+for(t=0; t&amp;lt;ticks; t++)&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;{&lt;/dt&gt;
+&lt;dd&gt;cmdVelPub.publish(speed);
+loopRate.sleep();
+//sleep(1);&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}
+//在旋转前停止机器人行走
+speed = geometry_msgs::Twist();
+cmdVelPub.publish(geometry_msgs::Twist());
+sleep(1);
+//loopRate.sleep();&lt;/p&gt;
+&lt;p&gt;speed.angular.z = angular_speed;
+ticks = int(goal_angle * rate);
+for(t=0; t&amp;lt;ticks; t++)&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;{&lt;/dt&gt;
+&lt;dd&gt;cmdVelPub.publish(speed);
+loopRate.sleep();&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p class="last"&gt;cmdVelPub.publish(geometry_msgs::Twist());
+loopRate.sleep();&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p class="last"&gt;return 0;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此代码实现了沿着直线走1.0m，顺时针旋转180度的功能。
+我们下面来对代码进行解读：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include &amp;lt;ros/ros.h&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include &amp;lt;signal.h&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include &amp;lt;geometry_msgs/Twist.h&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;一些头文件，geometry_msgs/Twist.h中包含了底盘的线速度和角速度信息。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ros&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;exbotxi_example_move&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//初始化ROS&lt;/span&gt;
+&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;topic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;cmd_vel&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//主题名字&lt;/span&gt;
+&lt;span class="n"&gt;ros&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;NodeHandle&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//定义节点&lt;/span&gt;
+&lt;span class="n"&gt;cmdVelPub&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;advertise&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;topic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//发布geometry_msgs::Twist消息&lt;/span&gt;
+&lt;span class="n"&gt;ros&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Rate&lt;/span&gt; &lt;span class="n"&gt;loopRate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;signal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SIGINT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shutdown&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//用来接收Ctrl-C，退出程序的运行。&lt;/span&gt;
+&lt;span class="n"&gt;ROS_INFO&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;exbot_example_move cpp start...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;linear_speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;goal_distance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;linear_duration&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;goal_distance&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;linear_speed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;angular_speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;goal_angle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;3.14&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;angular_duration&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;goal_angle&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;angular_speed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里定义了行走的线速度以及角速度。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt; &lt;span class="n"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;用来发布速度信息。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;ticks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linear_duration&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linear&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;linear_speed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="c1"&gt;//speed.angular.z = angular_speed;&lt;/span&gt;
+
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ticks&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;cmdVelPub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;publish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="n"&gt;loopRate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                &lt;span class="c1"&gt;//sleep(1);&lt;/span&gt;
+
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="c1"&gt;//在旋转前停止机器人行走&lt;/span&gt;
+        &lt;span class="n"&gt;speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;cmdVelPub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;publish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+        &lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="c1"&gt;//loopRate.sleep();&lt;/span&gt;
+
+        &lt;span class="n"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;angular&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;angular_speed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;ticks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;goal_angle&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ticks&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;cmdVelPub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;publish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="n"&gt;loopRate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+        &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="n"&gt;cmdVelPub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;publish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;geometry_msgs&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Twist&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+        &lt;span class="n"&gt;loopRate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里，设置好线速度和角速度后，将speed发布出去，让iRobot Create可以接收到。
+这里向前行走1.0m，旋转180.0度，执行一遍。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;上面就是代码的简单解释，其实ROS的核心就是pub/sub机制，一个节点publish主题，另一个节点subscribe它。&lt;/p&gt;
+&lt;p&gt;这样实现消息的传递。&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-Exbot-XI-Development-2-iRobot-Create-Test.html</guid><category>ExBot XI</category><category>iRobot Create</category><category>ASUS Xtion Pro Live</category><category>ROS</category></item><item><title>ExBot XI开发札记(一)ExBot XI测试</title><link>/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html</link><description>&lt;p&gt;打算记录下来玩的过程，以及自己开发的一些实验demo。&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
