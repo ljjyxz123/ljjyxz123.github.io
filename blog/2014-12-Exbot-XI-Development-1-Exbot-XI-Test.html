@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Tag: Strong AI">
+    <meta name="description" content="&lt;p class=&#34;first last&#34;&gt;到手了一个Exbot xi，感谢&amp;#64;Yuanbo She的设计！&lt;/p&gt;
+">
     <meta name="author" content="Yuanbo She">
-    <title>Strong AI | Brad Lucas</title>
+    <title>ExBot XI开发札记(一)ExBot XI测试 | Brad Lucas</title>
     <meta name="google-site-verification" content="0mXr6Pg187Q4q6NgNglcunnBiVqqS1L4yKV6loUWYkY"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +64,7 @@
                         </li>
                         <li>
                             <a href="/blog/category/exbot-xi-platform.html">
-                                <i class="fa fa-folder fa-lg"></i>
+                                <i class="fa fa-folder-open fa-lg"></i>
                                 ExBot XI Platform
                             </a>
                         </li>
@@ -127,14 +128,8 @@
     <div class='row'>
         <div class='col-md-9'>
             <!-- post main -->
-            <h2 class="ybs-bar-back-mid"><span>Tag: Strong AI</span></h2>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-AI-And-Human-Final-Target.html">人工智能的未来与人类的终极目标</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">本文介绍了我对人工智能以及人类终极目标的认识和看法。</p>
-</div>
+            <h2 class="ybs-bar-back-mid"><span>ExBot XI开发札记(一)ExBot XI测试</span></h2>
+    <article>
 <ul class="list-group list-inline ybs-info-list">
     <!-- date -->
     <li class="list-group-item">
@@ -151,18 +146,93 @@
     <!-- category -->
     <li class="list-group-item">
         <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/artificial-intelligent.html">Artificial Intelligent</a>
+        <a class="ybs-black" href="/blog/category/exbot-xi-platform.html">ExBot XI Platform</a>
     </li>
 
     <!-- tags -->
         <li class="list-group-item">
             <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/ren-gong-zhi-neng.html">人工智能</a>,
-                <a class="ybs-black" href="/blog/tag/ai.html">AI</a>,
-                <a class="ybs-black" href="/blog/tag/strong-ai.html">Strong AI</a>,
+                <a class="ybs-black" href="/blog/tag/exbot-xi.html">ExBot XI</a>,
+                <a class="ybs-black" href="/blog/tag/irobot-create.html">iRobot Create</a>,
+                <a class="ybs-black" href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a>,
+                <a class="ybs-black" href="/blog/tag/ros.html">ROS</a>,
         </li>
-</ul>                </div>
+</ul>        <div class="post-content ybs-background-color-layer1" id="post-content">
+            <div class="summary">
+                <p class="first last">到手了一个Exbot xi，感谢&#64;Yuanbo She的设计！</p>
+
             </div>
+		    <div class="copyright">
+欢迎转载或参考，但请尊重作者劳动成果，转载请注明出处，参考请引用链接！
+			</div>
+            <p>打算记录下来玩的过程，以及自己开发的一些实验demo。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id4">安装</a></li>
+<li><a class="reference internal" href="#exbot-xi" id="id5">ExBot XI的测试过程</a><ul>
+<li><a class="reference internal" href="#ros" id="id6">10分钟上手玩ROS仿真机器人</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3" id="id7">最后</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">安装</a></h2>
+<p>从开封到完全装好只用了40分钟，还是因为我自己装错了好几次。</p>
+<p>里面配件非常全，甚至包括内六角扳手，减震垫等，想得很周到。</p>
+<p>iRobot Create的底盘也是原装的，包括原装的电池，充电过程比较快，2个小时左右吧，绿灯亮了就充满了。</p>
+<p>充满后可以用很长时间。</p>
+<p>摄像头用的ASUS Xtion Pro Live，摄像机和iRobot底盘都是通过U口与电脑相连。</p>
+</div>
+<div class="section" id="exbot-xi">
+<h2><a class="toc-backref" href="#id5">ExBot XI的测试过程</a></h2>
+<p>下面说一下Exbot xi的测试过程：</p>
+<p>硬件安装完毕后，</p>
+<div class="section" id="ros">
+<h3><a class="toc-backref" href="#id6">10分钟上手玩ROS仿真机器人</a></h3>
+<p><strong>(1)测试iRobot Create 底盘</strong></p>
+<p>主要命令如下：</p>
+<div class="highlight"><pre>roscore ; 用来启动ros
+
+roslaunch exbotxi_bringup minimal.launch ; 启动Create底盘
+
+roslaunch turtlebot_teleop keyboard_teleop.launch ; 启动遥控turtlebot代码
+</pre></div>
+<p>在弹出的命令窗口，应该就可以遥控Exbot xi了，通过'u', 'i', 'o', 'j', 'k', 'l', 'm', ',', '.'九个按键进行遥控。</p>
+<p>如果通过按键控制Create移动了，那么恭喜你，你的底盘已经可以成功跑起来了！</p>
+<p><strong>(2)测试ASUS Xtion Pro Live摄像头</strong></p>
+<div class="highlight"><pre>roslaunch openni2_launch openni2.launch ; 启动ASUS摄像头
+
+rosrun rqt_image_view rqt_image_view ; 启动rqt来观察图像
+</pre></div>
+<p>在打开的rqt中，选择&quot;/camera/rgb/image_raw&quot;以及&quot;/camera/depth/image_raw&quot;主题可以分别观察ASUS采集到的彩色及深度图像。</p>
+<p>如果你看到了对应的彩色和深度图像，恭喜你，摄像头也测试成功了！</p>
+<p><strong>(3)好了，经过上述两步，底盘和摄像头都测试成功了。</strong></p>
+<p>如果你测试失败了，那么首先检查底盘和ASUS摄像头是否成功连接到电脑。</p>
+<p>首先，是否将底盘通过串转U口线，并且将U口连接到电脑上。</p>
+<p>再次，ASUS摄像头的USB线是否连接到电脑上。</p>
+<p>如果，硬件USB都已经连接，那么检查虚拟机下面的对应底盘和摄像头的图标是否连接？如果没有，则点击图标，选择&quot;Connect&quot;。</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">笔记本上的USB口不是每一个都能在虚拟机中识别底盘或者摄像头的，我的笔记本只有右上角的两个USB口可以成功连接到虚拟机。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">最后</a></h2>
+<p>请关注我后面的Exbot XI经验分享。</p>
+</div>
+
+        </div>
+    </article>
+
+
+<!-- UJian Button BEGIN -->
+<script type="text/javascript">var ujian_config = {target:1};</script>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&fade=1&uid=1803538"></script>
+<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+<!-- UJian Button END -->
 
             <!-- pagers -->
         </div>
@@ -190,7 +260,7 @@
                     </li>
                     <li>
                         <a class="ybs-black" href="/blog/category/exbot-xi-platform.html" title="ExBot XI Platform">
-                            <i class="fa fa-folder-o fa-lg"></i> ExBot XI Platform
+                            <i class="fa fa-folder-open-o fa-lg"></i> ExBot XI Platform
                         </a>
                     </li>
                     <li>

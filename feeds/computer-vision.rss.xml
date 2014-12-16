@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/computer-vision.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>摄像机相关知识及一些传感器</title><link>/blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</link><description>&lt;div class="contents topic" id="id2"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/computer-vision.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>摄像机相关知识及一些传感器</title><link>/blog/2014-12-Camera-Related-Knowledge-And-Some-Sensors.html</link><description>&lt;div class="contents topic" id="id2"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#ccd-cmos" id="id4"&gt;CCD &amp;amp; CMOS&lt;/a&gt;&lt;ul&gt;
@@ -64,4 +64,4 @@
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;最后&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;以上内容均来自：《自主移动机器人导论》，感谢作者Roland Siegwart IIIah 以及 R. Nourbakhsh&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</guid><category>Camera</category><category>CCD</category><category>CMOS</category><category>Low Cost</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-Camera-Related-Knowledge-And-Some-Sensors.html</guid><category>Camera</category><category>CCD</category><category>CMOS</category><category>Low Cost</category></item></channel></rss>
