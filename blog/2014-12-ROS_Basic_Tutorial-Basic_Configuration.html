@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Category: Computer Vision">
+    <meta name="description" content="&lt;p class=&#34;first last&#34;&gt;最近又过了一遍ROS Tutorial的基础篇，收获很大。&lt;/p&gt;
+">
     <meta name="author" content="Yuanbo She">
-    <title>Computer Vision | Brad Lucas</title>
+    <title>ROS基础系列之【基本配置】 | Brad Lucas</title>
     <meta name="google-site-verification" content="0mXr6Pg187Q4q6NgNglcunnBiVqqS1L4yKV6loUWYkY"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,7 @@
                         </li>
                         <li>
                             <a href="/blog/category/computer-vision.html">
-                                <i class="fa fa-folder-open fa-lg"></i>
+                                <i class="fa fa-folder fa-lg"></i>
                                 Computer Vision
                             </a>
                         </li>
@@ -75,7 +76,7 @@
                         </li>
                         <li>
                             <a href="/blog/category/ros.html">
-                                <i class="fa fa-folder fa-lg"></i>
+                                <i class="fa fa-folder-open fa-lg"></i>
                                 ROS
                             </a>
                         </li>
@@ -127,14 +128,8 @@
     <div class='row'>
         <div class='col-md-9'>
             <!-- post main -->
-            <h2 class="ybs-bar-back-mid"><span>Category: Computer Vision</span></h2>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-CV_AR_Cpp_Code.html">各种跟CV、AR相关的C/C++代码收集</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">这个页面力图搜集各种跟CV，AR相关的代码，如无特别声明，均是c/c++代码。还是一贯的标准，不求全面，只求质量。</p>
-</div>
+            <h2 class="ybs-bar-back-mid"><span>ROS基础系列之【基本配置】</span></h2>
+    <article>
 <ul class="list-group list-inline ybs-info-list">
     <!-- date -->
     <li class="list-group-item">
@@ -151,90 +146,96 @@
     <!-- category -->
     <li class="list-group-item">
         <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/computer-vision.html">Computer Vision</a>
+        <a class="ybs-black" href="/blog/category/ros.html">ROS</a>
     </li>
 
     <!-- tags -->
         <li class="list-group-item">
             <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/cv.html">CV</a>,
-                <a class="ybs-black" href="/blog/tag/ar.html">AR</a>,
-                <a class="ybs-black" href="/blog/tag/cpp.html">Cpp</a>,
-                <a class="ybs-black" href="/blog/tag/code.html">Code</a>,
+                <a class="ybs-black" href="/blog/tag/ros.html">ROS</a>,
         </li>
-</ul>                </div>
+</ul>        <div class="post-content ybs-background-color-layer1" id="post-content">
+            <div class="summary">
+                <p class="first last">最近又过了一遍ROS Tutorial的基础篇，收获很大。</p>
+
             </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-CV_IP_3DConstruction_Webs.html">视觉、图像处理、3D重构等相关工具及网站</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">研究图像处理，计算机视觉，3D重构，离不开开源的库，利用现成的，已开发好的库，可以高效、快速地构建自己的视觉应用。</p>
+		    <div class="copyright">
+欢迎转载或参考，但请尊重作者劳动成果，转载请注明出处，参考请引用链接！
+			</div>
+            <p>我会不定时地按照自己对ROS的理解来发布一些ROS的系列文章，第一个阶段的整体框架会按照ROS官网的tutorial(<a class="reference external" href="http://wiki.ros.org/ROS/Tutorials">http://wiki.ros.org/ROS/Tutorials</a>)来。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id5">安装ROS</a></li>
+<li><a class="reference internal" href="#ros-source-setup-bash" id="id6">配置ROS环境变量 - source setup.bash</a></li>
+<li><a class="reference internal" href="#id3" id="id7">初始化工作空间</a></li>
+<li><a class="reference internal" href="#reference" id="id8">Reference</a></li>
+<li><a class="reference internal" href="#id4" id="id9">最后</a></li>
+</ul>
 </div>
-<ul class="list-group list-inline ybs-info-list">
-    <!-- date -->
-    <li class="list-group-item">
-        <i class="fa fa-calendar-o fa-lg"></i>
-        <abbr class="published" title="2014-12-16T00:00:00+08:00"> Tue, 16 Dec 2014</abbr>
-    </li>
-
-    <!-- author -->
-        <li class="list-group-item">
-            <i class="fa fa-user fa-lg"></i>
-            <a class="ybs-black" href="/about.html">Brad Lucas</a>
-        </li>
-
-    <!-- category -->
-    <li class="list-group-item">
-        <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/computer-vision.html">Computer Vision</a>
-    </li>
-
-    <!-- tags -->
-        <li class="list-group-item">
-            <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/cv.html">CV</a>,
-                <a class="ybs-black" href="/blog/tag/image-processing.html">Image Processing</a>,
-                <a class="ybs-black" href="/blog/tag/3d-construction.html">3D Construction</a>,
-        </li>
-</ul>                </div>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-Camera-Related-Knowledge-And-Some-Sensors.html">摄像机相关知识及一些传感器</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">最近在看激光测距，结构光，CCD、CMOS等相关内容，搜集到一些内容，我会渐渐分享出来。</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">安装ROS</a></h2>
+<p>(1)按照ROS官网的方法来安装：</p>
+<p>这里有中文版的ROSwiki，步骤都很清楚，就不赘述了。</p>
+<p>(2)还有一种更方便的方法，就是直接在虚拟机VMWare中安装带有ROS的Ubuntu ISO文件。</p>
+<p>这里推荐YuanboShe自己制作的Ubuntu 12.04 for ROS by ExBot iso 发行版集合(<a class="reference external" href="http://blog.exbot.net/archives/702">http://blog.exbot.net/archives/702</a>)。</p>
 </div>
-<ul class="list-group list-inline ybs-info-list">
-    <!-- date -->
-    <li class="list-group-item">
-        <i class="fa fa-calendar-o fa-lg"></i>
-        <abbr class="published" title="2014-12-16T00:00:00+08:00"> Tue, 16 Dec 2014</abbr>
-    </li>
+<div class="section" id="ros-source-setup-bash">
+<h2><a class="toc-backref" href="#id6">配置ROS环境变量 - source setup.bash</a></h2>
+<p>ROS每次执行命令都只能在一个工作空间中进行。</p>
+<p>而工作空间需要配置一些东西，比如ROS命令运行需要包含的系统文件的路径，以及其他的一些配置。</p>
+<p>如果每次在你每次打开terminal要执行ROS命令的时候，都要重新配置一次的话，就太麻烦了。这时，就需要一个脚本来执行上述繁琐的配置过程。</p>
+<p>source setup.bash就是这个作用，如果你不知道source命令的含义，可以看一下这里(<a class="reference external" href="http://www.2cto.com/os/201206/13664">http://www.2cto.com/os/201206/13664</a>)。</p>
+<p>每次打开一个新的terminal，运行这个命令后，当前的terminal下就可以执行相应工作空间的ROS命令了。</p>
+<p>如果你对setup.bash里面的内容感兴趣，可以去cd  /opt/ros/hydro/(以hydro系统为例)文件夹下的setup.bash，以及setup.sh里面看一看。</p>
+<p><strong>具体需要source哪个setup.bash？</strong></p>
+<p>你在哪个工作空间执行ROS的命令，就需要source哪个工作空间的setup.bash，</p>
+<p>例如在系统工作空间下，而你的系统是Hydro版本的话，就是</p>
+<div class="highlight"><pre>source /opt/ros/hydro/setup.bash
+</pre></div>
+<p>如果你新建并初始化了一个新的工作空间，则到你的新建的工作空间下的devel文件夹，并source相应的setup.bash文件。</p>
+<p>关于source，以及工作空间的覆盖等概念，YuanboShe做了清晰的解释，请看这里(<a class="reference external" href="http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros">http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros</a>)(这里同时还有ROS中一些基本概念的讲解)。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">初始化工作空间</a></h2>
+<p>要使用ROS的命令，你首先要初始化一个ROS的工作空间，命令如下：</p>
+<div class="highlight"><pre>mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws/
+catkin_make
+</pre></div>
+<p>上述命令就是在~/catkin_ws文件夹下新建并初始化一个catkin_ws的工作空间。</p>
+<p>PS：catkin工作空间：就是一个你可以修改，编译，并且安装catkin包的一个文件夹。</p>
+<p>经过上述命令后，你就初始化了一个工作空间，可以在这个工作空间中进行相应的应用程序的编写以及运行。</p>
+<p>最后，你需要source一下catkin_ws工作空间的setup.bash文件。</p>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id8">Reference</a></h2>
+<!-- [Installing and Configuring Your ROS Environment] Installing and Configuring Your ROS Environment, http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment -->
+<!-- [Catkin Workspaces] Catkin Workspaces, http://wiki.ros.org/catkin/workspaces -->
+<!-- [在Ubuntu上安装 ROS Hydro] 在Ubuntu上安装 ROS Hydro, http://wiki.ros.org/cn/hydro/Installation/Ubuntu -->
+<table class="docutils citation" frame="void" id="roscatkin-rosbuild" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[配置ROS工作空间catkin+rosbuild]</td><td>配置ROS工作空间catkin+rosbuild, <a class="reference external" href="http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros">http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">最后</a></h2>
+<p>好了，这篇【基础配置】就到这里了，我以我能理解到的程度解释并说明了如果安装及配置ROS。希望能对大家有所帮助。</p>
+</div>
 
-    <!-- author -->
-        <li class="list-group-item">
-            <i class="fa fa-user fa-lg"></i>
-            <a class="ybs-black" href="/about.html">Brad Lucas</a>
-        </li>
+        </div>
+    </article>
 
-    <!-- category -->
-    <li class="list-group-item">
-        <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/computer-vision.html">Computer Vision</a>
-    </li>
 
-    <!-- tags -->
-        <li class="list-group-item">
-            <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/camera.html">Camera</a>,
-                <a class="ybs-black" href="/blog/tag/ccd.html">CCD</a>,
-                <a class="ybs-black" href="/blog/tag/cmos.html">CMOS</a>,
-                <a class="ybs-black" href="/blog/tag/low-cost.html">Low Cost</a>,
-        </li>
-</ul>                </div>
-            </div>
+<!-- UJian Button BEGIN -->
+<script type="text/javascript">var ujian_config = {target:1};</script>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&fade=1&uid=1803538"></script>
+<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+<!-- UJian Button END -->
 
             <!-- pagers -->
         </div>
@@ -257,7 +258,7 @@
                     </li>
                     <li>
                         <a class="ybs-black" href="/blog/category/computer-vision.html" title="Computer Vision">
-                            <i class="fa fa-folder-open-o fa-lg"></i> Computer Vision
+                            <i class="fa fa-folder-o fa-lg"></i> Computer Vision
                         </a>
                     </li>
                     <li>
@@ -272,7 +273,7 @@
                     </li>
                     <li>
                         <a class="ybs-black" href="/blog/category/ros.html" title="ROS">
-                            <i class="fa fa-folder-o fa-lg"></i> ROS
+                            <i class="fa fa-folder-open-o fa-lg"></i> ROS
                         </a>
                     </li>
             </ul>

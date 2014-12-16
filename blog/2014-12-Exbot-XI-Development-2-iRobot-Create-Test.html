@@ -179,81 +179,79 @@
 </div>
 <div class="section" id="node">
 <h2><a class="toc-backref" href="#id5">通过编写node代码控制</a></h2>
-<p>先上代码：
-.. code-block:: cpp</p>
-<blockquote>
-<p>#include &lt;ros/ros.h&gt;
-#include &lt;signal.h&gt;
-#include &lt;geometry_msgs/Twist.h&gt;</p>
-<p>ros::Publisher cmdVelPub;</p>
-<p>void shutdown(int sig)</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd><p class="first">cmdVelPub.publish(geometry_msgs::Twist());</p>
-<p>ROS_INFO(&quot;exbot example move cpp ended!&quot;);</p>
-<p class="last">ros::shutdown();</p>
-</dd>
-</dl>
-<p>}</p>
-<p>int main(int argc, char “**”argv)</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd><p class="first">ros::init(argc, argv, &quot;exbotxi_example_move&quot;);
-std::string topic = &quot;cmd_vel&quot;;
-ros::NodeHandle node;
-cmdVelPub = node.advertise&lt;geometry_msgs::Twist&gt;(topic, 1);
-ros::Rate loopRate(50);
-signal(SIGINT, shutdown);
-ROS_INFO(&quot;exbot_example_move cpp start...&quot;);</p>
-<p>int rate = 50;
-double linear_speed = 0.2;
-double goal_distance = 1.0;
-double linear_duration = goal_distance / linear_speed;</p>
-<p>double angular_speed = 1.0;
-double goal_angle = 3.14/ 2.0;
-double angular_duration = goal_angle / angular_speed;</p>
-<p>geometry_msgs::Twist speed;
-//while(ros::ok())
-for(int i=0; i&lt;1; i++)</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd><p class="first">speed = geometry_msgs::Twist();</p>
-<p>int ticks = int(linear_duration * rate);
-speed.linear.x = linear_speed;
-//speed.angular.z = angular_speed;</p>
-<p>int t = 0;
-for(t=0; t&lt;ticks; t++)</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd>cmdVelPub.publish(speed);
-loopRate.sleep();
-//sleep(1);</dd>
-</dl>
-<p>}
-//在旋转前停止机器人行走
-speed = geometry_msgs::Twist();
-cmdVelPub.publish(geometry_msgs::Twist());
-sleep(1);
-//loopRate.sleep();</p>
-<p>speed.angular.z = angular_speed;
-ticks = int(goal_angle * rate);
-for(t=0; t&lt;ticks; t++)</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd>cmdVelPub.publish(speed);
-loopRate.sleep();</dd>
-</dl>
-<p>}</p>
-<p class="last">cmdVelPub.publish(geometry_msgs::Twist());
-loopRate.sleep();</p>
-</dd>
-</dl>
-<p>}</p>
-<p class="last">return 0;</p>
-</dd>
-</dl>
-<p>}</p>
-</blockquote>
+<p>先上代码：</p>
+<div class="highlight"><pre><span class="cp">#include &lt;ros/ros.h&gt;</span>
+<span class="cp">#include &lt;signal.h&gt;</span>
+<span class="cp">#include &lt;geometry_msgs/Twist.h&gt;</span>
+
+<span class="n">ros</span><span class="o">::</span><span class="n">Publisher</span> <span class="n">cmdVelPub</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">shutdown</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">());</span>
+
+        <span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;exbot example move cpp ended!&quot;</span><span class="p">);</span>
+
+        <span class="n">ros</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="err">“</span><span class="o">**</span><span class="err">”</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;exbotxi_example_move&quot;</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">&quot;cmd_vel&quot;</span><span class="p">;</span>
+        <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">cmdVelPub</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">advertise</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">ros</span><span class="o">::</span><span class="n">Rate</span> <span class="n">loopRate</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">);</span>
+        <span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;exbot_example_move cpp start...&quot;</span><span class="p">);</span>
+
+        <span class="kt">int</span> <span class="n">rate</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">linear_speed</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">goal_distance</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">linear_duration</span> <span class="o">=</span> <span class="n">goal_distance</span> <span class="o">/</span> <span class="n">linear_speed</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">angular_speed</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">goal_angle</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">angular_duration</span> <span class="o">=</span> <span class="n">goal_angle</span> <span class="o">/</span> <span class="n">angular_speed</span><span class="p">;</span>
+
+        <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span> <span class="n">speed</span><span class="p">;</span>
+        <span class="c1">//while(ros::ok())</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">speed</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">();</span>
+
+                <span class="kt">int</span> <span class="n">ticks</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">linear_duration</span> <span class="o">*</span> <span class="n">rate</span><span class="p">);</span>
+                <span class="n">speed</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">linear_speed</span><span class="p">;</span>
+                <span class="c1">//speed.angular.z = angular_speed;</span>
+
+                <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">ticks</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">speed</span><span class="p">);</span>
+                        <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+                        <span class="c1">//sleep(1);</span>
+                <span class="p">}</span>
+                <span class="c1">//在旋转前停止机器人行走</span>
+                <span class="n">speed</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">();</span>
+                <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">());</span>
+                <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="c1">//loopRate.sleep();</span>
+
+                <span class="n">speed</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">angular_speed</span><span class="p">;</span>
+                <span class="n">ticks</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">goal_angle</span> <span class="o">*</span> <span class="n">rate</span><span class="p">);</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">ticks</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">speed</span><span class="p">);</span>
+                        <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+                <span class="p">}</span>
+
+                <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">());</span>
+                <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 <p>此代码实现了沿着直线走1.0m，顺时针旋转180度的功能。
 我们下面来对代码进行解读：</p>
 <div class="highlight"><pre><span class="cp">#include &lt;ros/ros.h&gt;</span>
@@ -281,7 +279,6 @@ loopRate.sleep();</p>
 </pre></div>
 <p>用来发布速度信息。</p>
 <div class="highlight"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-
 <span class="p">{</span>
         <span class="n">speed</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">();</span>
 
@@ -291,12 +288,10 @@ loopRate.sleep();</p>
 
         <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">ticks</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
-
         <span class="p">{</span>
                 <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">speed</span><span class="p">);</span>
                 <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
                 <span class="c1">//sleep(1);</span>
-
         <span class="p">}</span>
         <span class="c1">//在旋转前停止机器人行走</span>
         <span class="n">speed</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">();</span>
@@ -307,16 +302,13 @@ loopRate.sleep();</p>
         <span class="n">speed</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">angular_speed</span><span class="p">;</span>
         <span class="n">ticks</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">goal_angle</span> <span class="o">*</span> <span class="n">rate</span><span class="p">);</span>
         <span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">ticks</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
-
         <span class="p">{</span>
                 <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">speed</span><span class="p">);</span>
                 <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
-
         <span class="p">}</span>
 
         <span class="n">cmdVelPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="p">());</span>
         <span class="n">loopRate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
-
 <span class="p">}</span>
 </pre></div>
 <p>这里，设置好线速度和角速度后，将speed发布出去，让iRobot Create可以接收到。
@@ -388,26 +380,29 @@ loopRate.sleep();</p>
             </a></h3>
         </div>
         <div class="panel-body">
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/cmos.html">CMOS</a></span> ,
-                <span class="fa fa-tag tag-2"><a href="/blog/tag/irobot-create.html">iRobot Create</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/tracking.html">Tracking</a></span> ,
-                <span class="fa fa-tag tag-2"><a href="/blog/tag/exbot-xi.html">ExBot XI</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/roboearth.html">RoboEarth</a></span> ,
-                <span class="fa fa-tag tag-1"><a href="/blog/tag/ros.html">ROS</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ar.html">AR</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/mapping.html">Mapping</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ptam.html">PTAM</a></span> ,
-                <span class="fa fa-tag tag-2"><a href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/cpp.html">Cpp</a></span> ,
                 <span class="fa fa-tag tag-4"><a href="/blog/tag/strong-ai.html">Strong AI</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ccd.html">CCD</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ai.html">AI</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ji-qi-ren-yun.html">机器人云</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/ren-gong-zhi-neng.html">人工智能</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/cv.html">CV</a></span> ,
-                <span class="fa fa-tag tag-4"><a href="/blog/tag/camera.html">Camera</a></span> ,
                 <span class="fa fa-tag tag-4"><a href="/blog/tag/code.html">Code</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ar.html">AR</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/cmos.html">CMOS</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/tracking.html">Tracking</a></span> ,
+                <span class="fa fa-tag tag-2"><a href="/blog/tag/irobot-create.html">iRobot Create</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/roscore.html">roscore</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/mapping.html">Mapping</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/3d-construction.html">3D Construction</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/cpp.html">Cpp</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/camera.html">Camera</a></span> ,
                 <span class="fa fa-tag tag-4"><a href="/blog/tag/low-cost.html">Low Cost</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ai.html">AI</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ccd.html">CCD</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/roboearth.html">RoboEarth</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ren-gong-zhi-neng.html">人工智能</a></span> ,
+                <span class="fa fa-tag tag-2"><a href="/blog/tag/exbot-xi.html">ExBot XI</a></span> ,
+                <span class="fa fa-tag tag-2"><a href="/blog/tag/cv.html">CV</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/image-processing.html">Image Processing</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ptam.html">PTAM</a></span> ,
+                <span class="fa fa-tag tag-4"><a href="/blog/tag/ji-qi-ren-yun.html">机器人云</a></span> ,
+                <span class="fa fa-tag tag-1"><a href="/blog/tag/ros.html">ROS</a></span> ,
+                <span class="fa fa-tag tag-2"><a href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a></span> ,
         </div>
     </div>
 
