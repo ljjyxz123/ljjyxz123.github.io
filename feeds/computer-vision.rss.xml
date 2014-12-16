@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/computer-vision.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>摄像机相关知识及一些传感器</title><link>/blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</link><description>&lt;div class="contents topic" id="id2"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ccd-cmos" id="id4"&gt;CCD &amp;amp; CMOS&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ccd" id="id5"&gt;CCD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmos" id="id6"&gt;CMOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cognachrome" id="id7"&gt;Cognachrome颜色跟踪系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmucam" id="id8"&gt;CMUcam机器人视觉传感器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmvision" id="id9"&gt;CMVision颜色跟踪软件库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#psd" id="id10"&gt;PSD位置敏感探测器红外三角测距原理传感器模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ccd-cmos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;CCD &amp;amp; CMOS&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;CCD和CMOS分别是两种常用的图像传感器，用来感知打在传感器上面光子的数量，输出对应到图像处理中就是我们常常看到的数字图像&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="section" id="ccd"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;CCD&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CCD是于1969年由美国贝尔实验室的威拉德·博伊尔和乔治·史密斯所发明的。当时贝尔实验室正在发展图像电话和半导体气泡式存储器。将这两种新技术结起来后，博伊尔和史密斯得出一种设备，他们命名为“电荷‘气泡’组件”（Charge &amp;quot;Bubble&amp;quot; Devices）。&lt;/p&gt;
+&lt;p&gt;这种设备的特性就是它能沿着一片半导体的表面传递电荷，便尝试用来做为记忆设备，当时只能从暂存器用“注入”电荷的方式输入记忆。但随即发现光电效应能使此种组件表面产生电荷，而组成数字图像。&lt;/p&gt;
+&lt;p&gt;来自：(&lt;a class="reference external" href="http://zh.wikipedia.org/wiki"&gt;http://zh.wikipedia.org/wiki&lt;/a&gt;/感光耦合元件)、(&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Charge-coupled_device"&gt;http://en.wikipedia.org/wiki/Charge-coupled_device&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmos"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;CMOS&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;互补式金属氧化物半导体（简称互补式金氧半；英语：Complementary Metal-Oxide-Semiconductor，缩写：CMOS）是一种集成电路制程，可在硅晶圆上制作出PMOS（p-type MOSFET）和NMOS（n-type MOSFET）元件，由于PMOS与NMOS在特性上为互补性，因此称为CMOS。
+此制程可用来制作微处理器、 微控制器、静态随机存取内存以及互补式金属氧化物半导体图像传感器与其他数字逻辑电路。&lt;/p&gt;
+&lt;p&gt;来自：(&lt;a class="reference external" href="http://zh.wikipedia.org/wiki"&gt;http://zh.wikipedia.org/wiki&lt;/a&gt;/互補式金屬氧化物半導體)、(&lt;a class="reference external" href="http://en.wikipedia.org/wiki/CMOS"&gt;http://en.wikipedia.org/wiki/CMOS&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cognachrome"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;Cognachrome颜色跟踪系统&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;牛顿研究实验室(&lt;a class="reference external" href="http://www.newtonlabs.com/"&gt;http://www.newtonlabs.com/&lt;/a&gt;)的Cognachrome视觉系统(&lt;a class="reference external" href="http://www.newtonlabs.com/cognachrome/"&gt;http://www.newtonlabs.com/cognachrome/&lt;/a&gt;)是一个基于硬件的颜色跟踪传感器，能在专用处理器上以极快的速度跟踪颜色。&lt;/p&gt;
+&lt;p&gt;系统根据用户定义的颜色，以60Hz速率检测色斑。Cognachrome系统最大可对每帧25个物体做检测和报告，对各物体独立地提供质心、界定的框体、面积、纵横比和主轴方向等信息。&lt;/p&gt;
+&lt;p&gt;该传感器利用一个称作**不断设限**的技术来辨识各颜色。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmucam"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;CMUcam机器人视觉传感器&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.cs.cmu.edu/~cmucam/Publications/cvpr-2001.pdf"&gt;http://www.cs.cmu.edu/~cmucam/Publications/cvpr-2001.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由3个芯片组成：&lt;/p&gt;
+&lt;blockquote&gt;
+(1)CMOS成像芯片；
+(2)SX28微处理器；
+(3)Maxim RS232电平转换器；&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmvision"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;CMVision颜色跟踪软件库&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.cs.cmu.edu/~jbruce/cmvision/"&gt;http://www.cs.cmu.edu/~jbruce/cmvision/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;该传感器所用的基本算法，像Cognachrome一样，是不断设限的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="psd"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;PSD位置敏感探测器红外三角测距原理传感器模块&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;位置灵敏探测器PSD (Position Sensitive Device)属于半导体器件。是一种对其感光面上入射光斑重心位置敏感的光电器件。即当入射光斑落在器件感光面的不同位置时，PSD将对应输出不同的电信号。通过对此输出电信号的处理，即可确定入射光斑在PSD的位置。入射光的强度和尺寸大小对PSD的位置输出信号均无关。PSD的位置输出只与入射光的“重心”位置有关。&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;strong&gt;原理的简单说明&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;a class="reference external" href="http://wenda.chinabaike.com/b/9768/2013/1029/588781.html"&gt;http://wenda.chinabaike.com/b/9768/2013/1029/588781.html&lt;/a&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;一篇相关文章&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;a class="reference external" href="http://wr.lib.tsinghua.edu.cn/sites/default/files/1190692233038.pdf"&gt;http://wr.lib.tsinghua.edu.cn/sites/default/files/1190692233038.pdf&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以上内容均来自：《自主移动机器人导论》，感谢作者Roland Siegwart IIIah 以及 R. Nourbakhsh&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</guid><category>Camera</category><category>CCD</category><category>CMOS</category><category>Low Cost</category></item></channel></rss>

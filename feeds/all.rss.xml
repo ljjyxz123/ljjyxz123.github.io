@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>摄像机相关知识及一些传感器</title><link>/blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</link><description>&lt;div class="contents topic" id="id2"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ccd-cmos" id="id4"&gt;CCD &amp;amp; CMOS&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ccd" id="id5"&gt;CCD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmos" id="id6"&gt;CMOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cognachrome" id="id7"&gt;Cognachrome颜色跟踪系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmucam" id="id8"&gt;CMUcam机器人视觉传感器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cmvision" id="id9"&gt;CMVision颜色跟踪软件库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#psd" id="id10"&gt;PSD位置敏感探测器红外三角测距原理传感器模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ccd-cmos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;CCD &amp;amp; CMOS&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;CCD和CMOS分别是两种常用的图像传感器，用来感知打在传感器上面光子的数量，输出对应到图像处理中就是我们常常看到的数字图像&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="section" id="ccd"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;CCD&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CCD是于1969年由美国贝尔实验室的威拉德·博伊尔和乔治·史密斯所发明的。当时贝尔实验室正在发展图像电话和半导体气泡式存储器。将这两种新技术结起来后，博伊尔和史密斯得出一种设备，他们命名为“电荷‘气泡’组件”（Charge &amp;quot;Bubble&amp;quot; Devices）。&lt;/p&gt;
+&lt;p&gt;这种设备的特性就是它能沿着一片半导体的表面传递电荷，便尝试用来做为记忆设备，当时只能从暂存器用“注入”电荷的方式输入记忆。但随即发现光电效应能使此种组件表面产生电荷，而组成数字图像。&lt;/p&gt;
+&lt;p&gt;来自：(&lt;a class="reference external" href="http://zh.wikipedia.org/wiki"&gt;http://zh.wikipedia.org/wiki&lt;/a&gt;/感光耦合元件)、(&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Charge-coupled_device"&gt;http://en.wikipedia.org/wiki/Charge-coupled_device&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmos"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;CMOS&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;互补式金属氧化物半导体（简称互补式金氧半；英语：Complementary Metal-Oxide-Semiconductor，缩写：CMOS）是一种集成电路制程，可在硅晶圆上制作出PMOS（p-type MOSFET）和NMOS（n-type MOSFET）元件，由于PMOS与NMOS在特性上为互补性，因此称为CMOS。
+此制程可用来制作微处理器、 微控制器、静态随机存取内存以及互补式金属氧化物半导体图像传感器与其他数字逻辑电路。&lt;/p&gt;
+&lt;p&gt;来自：(&lt;a class="reference external" href="http://zh.wikipedia.org/wiki"&gt;http://zh.wikipedia.org/wiki&lt;/a&gt;/互補式金屬氧化物半導體)、(&lt;a class="reference external" href="http://en.wikipedia.org/wiki/CMOS"&gt;http://en.wikipedia.org/wiki/CMOS&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cognachrome"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;Cognachrome颜色跟踪系统&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;牛顿研究实验室(&lt;a class="reference external" href="http://www.newtonlabs.com/"&gt;http://www.newtonlabs.com/&lt;/a&gt;)的Cognachrome视觉系统(&lt;a class="reference external" href="http://www.newtonlabs.com/cognachrome/"&gt;http://www.newtonlabs.com/cognachrome/&lt;/a&gt;)是一个基于硬件的颜色跟踪传感器，能在专用处理器上以极快的速度跟踪颜色。&lt;/p&gt;
+&lt;p&gt;系统根据用户定义的颜色，以60Hz速率检测色斑。Cognachrome系统最大可对每帧25个物体做检测和报告，对各物体独立地提供质心、界定的框体、面积、纵横比和主轴方向等信息。&lt;/p&gt;
+&lt;p&gt;该传感器利用一个称作**不断设限**的技术来辨识各颜色。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmucam"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;CMUcam机器人视觉传感器&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.cs.cmu.edu/~cmucam/Publications/cvpr-2001.pdf"&gt;http://www.cs.cmu.edu/~cmucam/Publications/cvpr-2001.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由3个芯片组成：&lt;/p&gt;
+&lt;blockquote&gt;
+(1)CMOS成像芯片；
+(2)SX28微处理器；
+(3)Maxim RS232电平转换器；&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cmvision"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;CMVision颜色跟踪软件库&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.cs.cmu.edu/~jbruce/cmvision/"&gt;http://www.cs.cmu.edu/~jbruce/cmvision/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;该传感器所用的基本算法，像Cognachrome一样，是不断设限的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="psd"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;PSD位置敏感探测器红外三角测距原理传感器模块&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;位置灵敏探测器PSD (Position Sensitive Device)属于半导体器件。是一种对其感光面上入射光斑重心位置敏感的光电器件。即当入射光斑落在器件感光面的不同位置时，PSD将对应输出不同的电信号。通过对此输出电信号的处理，即可确定入射光斑在PSD的位置。入射光的强度和尺寸大小对PSD的位置输出信号均无关。PSD的位置输出只与入射光的“重心”位置有关。&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;strong&gt;原理的简单说明&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;a class="reference external" href="http://wenda.chinabaike.com/b/9768/2013/1029/588781.html"&gt;http://wenda.chinabaike.com/b/9768/2013/1029/588781.html&lt;/a&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;一篇相关文章&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;a class="reference external" href="http://wr.lib.tsinghua.edu.cn/sites/default/files/1190692233038.pdf"&gt;http://wr.lib.tsinghua.edu.cn/sites/default/files/1190692233038.pdf&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以上内容均来自：《自主移动机器人导论》，感谢作者Roland Siegwart IIIah 以及 R. Nourbakhsh&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-she-xiang-ji-xiang-guan-zhi-shi-ji-yi-xie-chuan-gan-qi.html</guid><category>Camera</category><category>CCD</category><category>CMOS</category><category>Low Cost</category></item><item><title>人工智能的未来与人类的终极目标</title><link>/blog/2014-12-AI-And-Human-Final-Target-en.html</link><description>&lt;div class="contents topic" id="id2"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id7"&gt;人工智能&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id8"&gt;机器人伦理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id9"&gt;人类的终极目标&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id10"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;人工智能&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;人工智能其实是一门很综合的学科，涉及到计算机科学，心理学，哲学，认知神经科学，数学，数理逻辑等多门学科。
+目前人工智能处在起步阶段，但也是很关键的一个阶段。最近读《人工智能的未来》（《On Intelligence》）以及《GEB》，产生了很多感想。
+人的思维和大脑到底是支持一元论还是二元论，即思维到底是由大脑生成的，还是由某种不可知的力量生成？
+其实，不能轻易地选择其中任何一种答案，我们目前还没有能力去证明哪种说法是正确的或者错误的，唯一可行的做法是保持自己的观点，然后试图收集证据去证明它，或者当收集到的证据证明了它是错误的时候，就改变自己的观念，以转向正确的观点。&lt;/p&gt;
+&lt;p&gt;我本人是支持一元论的观点，即思维是由大脑产生的，而不是某种不可知的力量。心理学上有这样一个实验，即用电击某个人的大脑的某个区域，人会产生一定的幻象或者感觉。比如，当刺激大脑的味觉区域时，人会感觉到甜味或者其他的味道。所以就有人提出人脑是分区域的，即我们可以精确地划分出指控我们的知觉，视觉，嗅觉，味觉等各个感觉的区域。
+但认知神经科学的一些研究发现，人的大脑有大概的各个区域，但是这些区域并不是一成不变的，比如说，天生没有视觉的人，可能利用耳朵就能感觉到颜色或者实际的物体。大脑其实是一个可塑性极强的，而每一个区域都可以被训练成可以具有某种感知能力的区域。即大脑本身的构造和我们对这个世界的认识是一样的，即分层的认识观。
+举个例子，我们知道，宇宙是由各个星球构成的，而地球是由各个国家构成的，每个国家是由各个城市构成的，每个城市是由各个区构成的，而每个区里都有各种各样的房子和建筑物，每个房子又是由各个家具构成的，每个家具是由或木质材料或铁质材料构成的，每种材料又是由分子构成的，分子是由原子构成的，原子是由质子、中子和电子构成的，而质子又是由夸克构成的，究竟还能不能往下继续分，这个谁也说不清，人的认知能力是受物理构成影响的，是有局限性的，所以物质的组成的细分程度是由人类自身决定的。
+上面那个例子很形象地说明了大脑的层次构成（猜想），大脑也是分为各个层次的，粗层次和细层次。而人们识别都是由最高层的，也是最粗糙的层次开始，直到大脑可以识别这个物体为止，这是视觉的一般原理（猜想）。而进入我们大脑的其实是一串序列，而序列有公共相同的部分，如桌子和凳子都是由木材构成的，这样，表示物体就可以利用数据结构中树的表示，识别过程也可以变成一个搜索的过程。&lt;/p&gt;
+&lt;p&gt;以上是对人脑的基本原理的一个很略的说明，而人自身能不能完全探知自己的奥秘？也许随着科学的进步，人们会对自己有越来越深的了解，但是总会有个极限，或是人类超越了这个极限，可以探知到所有人自身的奥秘。
+人的逻辑世界本身是有局限性的，可能人类用来认识自己的逻辑世界本身就是不完备的，正如哥德尔定理所说的那样，人类最终会陷入一个个的悖论中，而唯一的方法就是讲人类所创建的这个逻辑大厦推倒，全部重来。
+另外，这个世界以及人类本身是确定的还是随机的？一个比较可能的答案是随机的，而这个随机性是不是都能够由一些如均值和方差等统计规律来表示？答案可能是能，也可能是不能。
+一旦涉及到宇宙这个大的空间中，或是人类自身更精细的角度中时，可能我们所熟知的物理和数学大厦就会失效。就像《生命是什么》中所说的那样，人类的模型可能是可以用量子力学来表示的，如人类的记忆及思维可能是一个能级跃迁的过程，而并不是连续的。&lt;/p&gt;
+&lt;p&gt;我们再做一个假设，假设人类是可以完全被认知的，那么当人类自身已经没有秘密可言的时候，当宇宙中的全部奥秘都被探索到了以后，人类的目标又是什么？人们又会为什么而奋斗？
+加入我们现在的目标是为了人类更好的生活而奋斗，为了探索这个世界而奋斗，那么目标实现之后呢？
+这个问题似乎回到了哲学的基本问题，生命的本质，以及生命的意义。
+这是个值得我们每一个人都仔细考虑的问题，也许考虑这个问题本身，也是我们的终极目标。&lt;/p&gt;
+&lt;p&gt;这就引发了另一个问题，科学和人文的矛盾之处。
+科学的进步很多时候是背离自然的，也会影响自然的不和谐，我们在以自己的想象来改造这个世界，至于这样的世界究竟对不对，会不会有负面影响，没有人会考虑，因为我们本身有自身的本性的缺点，无法克服。
+既然不知道未来究竟如何，那么按照目前的节奏及方式走下去，看来是最合适的一种做法。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;机器人伦理&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;说到人工智能，很难不提到机器人，而机器人的伦理问题又是一个大的问题。
+当机器人如电脑一般普及的时候，我们要考虑到会不会有Hacker利用机器人软件的漏洞来写病毒程序，而有些恐怖组织会不会利用机器人来杀人，那么当机器人杀人后，该不该负法律责任？如果机器人不该负，那么谁该来负这个责任？
+想一想，其实这是一个很可怕的预言，就如科幻电影一般，在未来都会实现，而现在我们可以逃避这些问题，那时候的我们怎么办？
+人生来就是要负责任的，真正能逃避的只有精神病患者和深居山林的人。
+其实我不该把精神病患者归于这一类，精神病患者本身可能就是一个极端的天才，他们有更多的时间和空间去思考我们没时间思考的这些问题。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;人类的终极目标&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;人工智能终究是逃不过伦理的讨论及哲学的探讨的，而如果把所有关于人工智能的问题都列出来，可能就是一个新的哲学史，而太多并不意味着我们有理由不去思考。每个人对于人类终极目标的认识，对于哲学本质的许多问题的认识都是不同的，所以，每个人都有一个自己的问题清单，而不断地往自己的问题清单里添加新的问题，并且解决旧的问题，是一件很有意思的事情，即使这些事情没有答案。&lt;/p&gt;
+&lt;p&gt;所以，思考吧，如果你能想到一丝的线索或者答案，都是人生的一种成长，而把人生思考明白了，我们的任务也就完成了，所以我把思考这些事情作为我的人生的终极目标。那么，你们呢？&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;玄影游侠原创，
+转载请注明出处。&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-15:blog/2014-12-AI-And-Human-Final-Target-en.html</guid><category>人工智能</category><category>AI</category><category>Strong AI</category></item><item><title>ExBot XI开发札记（一）ExBot XI测试</title><link>/blog/2014-12-exbot-xikai-fa-zha-ji-yi-exbot-xice-shi.html</link><description>&lt;p&gt;打算记录下来玩的过程，以及自己开发的一些实验demo。&lt;/p&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id4"&gt;安装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#exbot-xi" id="id5"&gt;ExBot XI的测试过程&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ros" id="id6"&gt;10分钟上手玩ROS仿真机器人&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id7"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;安装&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;从开封到完全装好只用了40分钟，还是因为我自己装错了好几次。&lt;/p&gt;
+&lt;p&gt;里面配件非常全，甚至包括内六角扳手，减震垫等，想得很周到。&lt;/p&gt;
+&lt;p&gt;iRobot Create的底盘也是原装的，包括原装的电池，充电过程比较快，2个小时左右吧，绿灯亮了就充满了。&lt;/p&gt;
+&lt;p&gt;充满后可以用很长时间。&lt;/p&gt;
+&lt;p&gt;摄像头用的ASUS Xtion Pro Live，摄像机和iRobot底盘都是通过U口与电脑相连。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="exbot-xi"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;ExBot XI的测试过程&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;下面说一下Exbot xi的测试过程：&lt;/p&gt;
+&lt;p&gt;硬件安装完毕后，&lt;/p&gt;
+&lt;div class="section" id="ros"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;10分钟上手玩ROS仿真机器人&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;(1)测试iRobot Create 底盘&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;主要命令如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;roscore ; 用来启动ros
+
+roslaunch exbotxi_bringup minimal.launch ; 启动Create底盘
+
+roslaunch turtlebot_teleop keyboard_teleop.launch ; 启动遥控turtlebot代码
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在弹出的命令窗口，应该就可以遥控Exbot xi了，通过'u', 'i', 'o', 'j', 'k', 'l', 'm', ',', '.'九个按键进行遥控。&lt;/p&gt;
+&lt;p&gt;如果通过按键控制Create移动了，那么恭喜你，你的底盘已经可以成功跑起来了！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(2)测试ASUS Xtion Pro Live摄像头&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;roslaunch openni2_launch openni2.launch ; 启动ASUS摄像头
+
+rosrun rqt_image_view rqt_image_view ; 启动rqt来观察图像
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在打开的rqt中，选择&amp;quot;/camera/rgb/image_raw&amp;quot;以及&amp;quot;/camera/depth/image_raw&amp;quot;主题可以分别观察ASUS采集到的彩色及深度图像。&lt;/p&gt;
+&lt;p&gt;如果你看到了对应的彩色和深度图像，恭喜你，摄像头也测试成功了！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(3)好了，经过上述两步，底盘和摄像头都测试成功了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你测试失败了，那么首先检查底盘和ASUS摄像头是否成功连接到电脑。&lt;/p&gt;
+&lt;p&gt;首先，是否将底盘通过串转U口线，并且将U口连接到电脑上。&lt;/p&gt;
+&lt;p&gt;再次，ASUS摄像头的USB线是否连接到电脑上。&lt;/p&gt;
+&lt;p&gt;如果，硬件USB都已经连接，那么检查虚拟机下面的对应底盘和摄像头的图标是否连接？如果没有，则点击图标，选择&amp;quot;Connect&amp;quot;。&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;笔记本上的USB口不是每一个都能在虚拟机中识别底盘或者摄像头的，我的笔记本只有右上角的两个USB口可以成功连接到虚拟机。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;请关注我后面的Exbot XI经验分享。&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-15:blog/2014-12-exbot-xikai-fa-zha-ji-yi-exbot-xice-shi.html</guid><category>ExBot XI</category><category>iRobot Create</category><category>ASUS Xtion Pro Live</category><category>ROS</category></item></channel></rss>
