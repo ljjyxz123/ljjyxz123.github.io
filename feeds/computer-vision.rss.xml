@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/computer-vision.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;p&gt;如有特别推荐的代码，请在本页留言，或者email我：cvchina AT gmail.com&lt;/p&gt;
-&lt;div class="contents topic" id="id1"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/computer-vision.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#general-library" id="id3"&gt;通用库/General Library&lt;/a&gt;&lt;/li&gt;

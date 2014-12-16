@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;p&gt;如有特别推荐的代码，请在本页留言，或者email我：cvchina AT gmail.com&lt;/p&gt;
-&lt;div class="contents topic" id="id1"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#general-library" id="id3"&gt;通用库/General Library&lt;/a&gt;&lt;/li&gt;
@@ -586,8 +585,7 @@ sensor_msgs/Image.h和sensor_msgs/image_encodings.h里面是传感器相关的�
 &lt;p&gt;&lt;strong&gt;3.ptam&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.cvchina.info/tag/ptam/"&gt;http://www.cvchina.info/tag/ptam/&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-Ptam.html</guid><category>PTAM</category><category>ROS</category><category>Tracking</category><category>Mapping</category></item><item><title>ROS基础系列之【基本配置】</title><link>/blog/2014-12-ROS_Basic_Tutorial-Basic_Configuration.html</link><description>&lt;p&gt;我会不定时地按照自己对ROS的理解来发布一些ROS的系列文章，第一个阶段的整体框架会按照ROS官网的tutorial(&lt;a class="reference external" href="http://wiki.ros.org/ROS/Tutorials"&gt;http://wiki.ros.org/ROS/Tutorials&lt;/a&gt;)来。&lt;/p&gt;
-&lt;div class="contents topic" id="id1"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-Ptam.html</guid><category>PTAM</category><category>ROS</category><category>Tracking</category><category>Mapping</category></item><item><title>ROS基础系列之【基本配置】</title><link>/blog/2014-12-ROS_Basic_Tutorial-Basic_Configuration.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id5"&gt;安装ROS&lt;/a&gt;&lt;/li&gt;
@@ -636,22 +634,16 @@ catkin_make
 &lt;/div&gt;
 &lt;div class="section" id="reference"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;Reference&lt;/a&gt;&lt;/h2&gt;
-&lt;!-- [Installing and Configuring Your ROS Environment] Installing and Configuring Your ROS Environment, http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment --&gt;
-&lt;!-- [Catkin Workspaces] Catkin Workspaces, http://wiki.ros.org/catkin/workspaces --&gt;
-&lt;!-- [在Ubuntu上安装 ROS Hydro] 在Ubuntu上安装 ROS Hydro, http://wiki.ros.org/cn/hydro/Installation/Ubuntu --&gt;
-&lt;table class="docutils citation" frame="void" id="roscatkin-rosbuild" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;[配置ROS工作空间catkin+rosbuild]&lt;/td&gt;&lt;td&gt;配置ROS工作空间catkin+rosbuild, &lt;a class="reference external" href="http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros"&gt;http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;!-- Installing and Configuring Your ROS Environment, http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment --&gt;
+&lt;!-- Catkin Workspaces, http://wiki.ros.org/catkin/workspaces --&gt;
+&lt;!-- 在Ubuntu上安装 ROS Hydro, http://wiki.ros.org/cn/hydro/Installation/Ubuntu --&gt;
+&lt;!-- 配置ROS工作空间catkin+rosbuild, http://yuanboshe.github.io/blog/2013-12-overlay_catkin_and_rosbuild.html#overlay-rosbuild-ws-catkin-ws-ros --&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;最后&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;好了，这篇【基础配置】就到这里了，我以我能理解到的程度解释并说明了如果安装及配置ROS。希望能对大家有所帮助。&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-ROS_Basic_Tutorial-Basic_Configuration.html</guid><category>ROS</category></item><item><title>机器人云：RoboEarch</title><link>/blog/2014-12-RoboEarth.html</link><description>&lt;p&gt;它的目的和ROS一样，减少重复劳动，统一机器人标准。&lt;/p&gt;
-&lt;div class="contents topic" id="id1"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 16 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-16:blog/2014-12-ROS_Basic_Tutorial-Basic_Configuration.html</guid><category>ROS</category></item><item><title>机器人云：RoboEarch</title><link>/blog/2014-12-RoboEarth.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#roboearth" id="id3"&gt;RoboEarth官网&lt;/a&gt;&lt;/li&gt;
@@ -801,8 +793,7 @@ ERROR: rosout is not built. Please run 'rosmake rosout'&lt;/p&gt;
 &lt;p&gt;玄影游侠原创，
 转载请注明出处。&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-15:blog/2014-12-AI-And-Human-Final-Target.html</guid><category>人工智能</category><category>AI</category><category>Strong AI</category></item><item><title>ExBot XI开发札记(一)ExBot XI测试</title><link>/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html</link><description>&lt;p&gt;打算记录下来玩的过程，以及自己开发的一些实验demo。&lt;/p&gt;
-&lt;div class="contents topic" id="id1"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate><guid>tag:,2014-12-15:blog/2014-12-AI-And-Human-Final-Target.html</guid><category>人工智能</category><category>AI</category><category>Strong AI</category></item><item><title>ExBot XI开发札记(一)ExBot XI测试</title><link>/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id4"&gt;安装&lt;/a&gt;&lt;/li&gt;
