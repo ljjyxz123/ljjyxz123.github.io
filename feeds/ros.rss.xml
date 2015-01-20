@@ -13,7 +13,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;一些工具的介绍以及Python的安装&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;这个我是参考 ** &amp;#64;Yuanbo She ** 的一篇经典的Python虚拟环境搭建的文章来的，地址如下：&lt;/p&gt;
+&lt;p&gt;这个我是参考 &lt;strong&gt;Yuanbo She&lt;/strong&gt; 的一篇经典的Python虚拟环境搭建的文章来的，地址如下：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://my.phirobot.com/blog/2014-02-python_in_windows.html"&gt;http://my.phirobot.com/blog/2014-02-python_in_windows.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这里面对Python的安装、环境变量的配置、虚拟环境的配置有很详细的解释，我就不赘述了。&lt;/p&gt;
 &lt;/div&gt;
@@ -64,7 +64,7 @@ import-module virtualenvwrapper
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;致谢&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;这里，要特别感谢 ** &amp;#64;Yuanbo She ** 的博客：&lt;/p&gt;
+&lt;p&gt;这里，要特别感谢 &lt;strong&gt;&amp;#64;Yuanbo She&lt;/strong&gt; 的博客：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://my.phirobot.com"&gt;http://my.phirobot.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;从他那里我学到了太多东西。&lt;/p&gt;
 &lt;img alt="" src="robot.jpg" /&gt;
