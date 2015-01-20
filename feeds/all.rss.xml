@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 16 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;div class="contents topic" id="id1"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Brad Lucas</title><link>/</link><description></description><atom:link href="/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 20 Jan 2015 00:00:00 +0800</lastBuildDate><item><title>Win7下面安装配置Python虚拟环境</title><link>/blog/2015-01-Python_Virtual_Env_Install.html</link><description>&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python" id="id7"&gt;一些工具的介绍以及Python的安装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id8"&gt;安装过程中可能遇到的问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id9"&gt;安装过程中的几个主要的命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id10"&gt;创建新的Python虚拟环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id11"&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id12"&gt;致谢&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id13"&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;一些工具的介绍以及Python的安装&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;这个我是参考&amp;#64;Yuanbo She的一篇经典的Python虚拟环境搭建的文章来的，地址如下：&lt;/p&gt;
+&lt;p&gt;my.phirobot.com/blog/2014-02-python_in_windows.html&lt;/p&gt;
+&lt;p&gt;这里面对Python的安装、环境变量的配置、虚拟环境的配置有很详细的解释，我就不赘述了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;安装过程中可能遇到的问题&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;有时候，一处小小的错误就会让你折腾好几天。我遇到的一些问题如下：&lt;/p&gt;
+&lt;p&gt;(1)设置Python系统环境变量：在系统变量中新建一项，变量名为Python，变量值为D:/Python/Python27。&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;这里一定要注意，变量值后面千万不要加分号，否则在powershell或者cmd中运行python命令会找不到。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;(2)Python在安装的时候，千万不要安装到一个带空格的目录里面，比如不要安装在C:Program FilesPython27，否则后面执行C:Program FilesPython27Scripts中的pip，&lt;/p&gt;
+&lt;p&gt;virtualenv会出现错误。&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;这个装到类似D:PythonPython27的目录下就好了，这个地方折腾了我好几天。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;安装过程中的几个主要的命令&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;打开PowerShell，输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Start-Process powershell -Verb runas
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在新打开的PowerShell中输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Set-ExecutionPolicy RemoteSigned
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;下一步回车即可。&lt;/p&gt;
+&lt;p&gt;下面的命令用来完成virtualenv和virtualenvwrapper-powershell的安装设置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install virtualenv
+
+pip install virtualenvwrapper-powershell
+
+mkdir $env:WORKON_HOME
+
+cd $env:WORKON_HOME
+
+import-module virtualenvwrapper
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;创建新的Python虚拟环境&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkvirtualenv rosenv --no-site-packages
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="reference"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Reference&lt;/a&gt;&lt;/h2&gt;
+&lt;!-- Installing and Configuring Your ROS Environment, http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment --&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;致谢&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;这里，要特别感谢&amp;#64;Yuanbo She的博客：&lt;/p&gt;
+&lt;p&gt;my.phirobot.com/blog/2014-02-python_in_windows.html&lt;/p&gt;
+&lt;p&gt;从他那里我学到了太多东西。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;最后&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;好了，就到这里了，我以我能理解到的程度解释并说明了如果安装及配置Python虚拟环境需要注意到的一些地方，希望能让大家少走一些弯路。&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Brad Lucas</dc:creator><pubDate>Tue, 20 Jan 2015 00:00:00 +0800</pubDate><guid>tag:,2015-01-20:blog/2015-01-Python_Virtual_Env_Install.html</guid><category>Python</category></item><item><title>各种跟CV、AR相关的C/C++代码收集</title><link>/blog/2014-12-CV_AR_Cpp_Code.html</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#general-library" id="id3"&gt;通用库/General Library&lt;/a&gt;&lt;/li&gt;

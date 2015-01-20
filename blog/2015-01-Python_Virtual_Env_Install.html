@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Tag: ExBot XI">
+    <meta name="description" content="&lt;p class=&#34;first last&#34;&gt;在Win7下面配置Python虚拟环境，用来玩WIN_ROS，遇到了无数的问题，还好最后磨出来了。我就分享下Win7下面进行Python虚拟环境配置的一些经验吧。&lt;/p&gt;
+">
     <meta name="author" content="Yuanbo She">
-    <title>ExBot XI | Brad Lucas</title>
+    <title>Win7下面安装配置Python虚拟环境 | Brad Lucas</title>
     <meta name="google-site-verification" content="0mXr6Pg187Q4q6NgNglcunnBiVqqS1L4yKV6loUWYkY"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +76,7 @@
                         </li>
                         <li>
                             <a href="/blog/category/ros.html">
-                                <i class="fa fa-folder fa-lg"></i>
+                                <i class="fa fa-folder-open fa-lg"></i>
                                 ROS
                             </a>
                         </li>
@@ -127,19 +128,13 @@
     <div class='row'>
         <div class='col-md-9'>
             <!-- post main -->
-            <h2 class="ybs-bar-back-mid"><span>Tag: ExBot XI</span></h2>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-Exbot-XI-Development-2-iRobot-Create-Test.html">ExBot XI开发札记(二)iRobot Create底盘测试</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">今天，我们来一起看看利用ROS来控制iRobot Create底盘。</p>
-</div>
+            <h2 class="ybs-bar-back-mid"><span>Win7下面安装配置Python虚拟环境</span></h2>
+    <article>
 <ul class="list-group list-inline ybs-info-list">
     <!-- date -->
     <li class="list-group-item">
         <i class="fa fa-calendar-o fa-lg"></i>
-        <abbr class="published" title="2014-12-16T00:00:00+08:00"> Tue, 16 Dec 2014</abbr>
+        <abbr class="published" title="2015-01-20T00:00:00+08:00"> Tue, 20 Jan 2015</abbr>
     </li>
 
     <!-- author -->
@@ -151,91 +146,113 @@
     <!-- category -->
     <li class="list-group-item">
         <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/exbot-xi-platform.html">ExBot XI Platform</a>
+        <a class="ybs-black" href="/blog/category/ros.html">ROS</a>
     </li>
 
     <!-- tags -->
         <li class="list-group-item">
             <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/exbot-xi.html">ExBot XI</a>,
-                <a class="ybs-black" href="/blog/tag/irobot-create.html">iRobot Create</a>,
-                <a class="ybs-black" href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a>,
-                <a class="ybs-black" href="/blog/tag/ros.html">ROS</a>,
+                <a class="ybs-black" href="/blog/tag/python.html">Python</a>,
         </li>
-</ul>                </div>
+</ul>        <div class="post-content ybs-background-color-layer1" id="post-content">
+            <div class="summary">
+                <p class="first last">在Win7下面配置Python虚拟环境，用来玩WIN_ROS，遇到了无数的问题，还好最后磨出来了。我就分享下Win7下面进行Python虚拟环境配置的一些经验吧。</p>
+
             </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-Exbot-XI-Development-3-RGBD-Camera-Test.html">ExBot XI开发札记(三)RGBD摄像机测试</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">这篇文章我们一起看一下如何从RGBD摄像头得到你想要的rgb图像和depth图像。</p>
+		    <div class="copyright">
+欢迎转载或参考，但请尊重作者劳动成果，转载请注明出处，参考请引用链接！
+			</div>
+            <div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#python" id="id7">一些工具的介绍以及Python的安装</a></li>
+<li><a class="reference internal" href="#id2" id="id8">安装过程中可能遇到的问题</a></li>
+<li><a class="reference internal" href="#id3" id="id9">安装过程中的几个主要的命令</a></li>
+<li><a class="reference internal" href="#id4" id="id10">创建新的Python虚拟环境</a></li>
+<li><a class="reference internal" href="#reference" id="id11">Reference</a></li>
+<li><a class="reference internal" href="#id5" id="id12">致谢</a></li>
+<li><a class="reference internal" href="#id6" id="id13">最后</a></li>
+</ul>
 </div>
-<ul class="list-group list-inline ybs-info-list">
-    <!-- date -->
-    <li class="list-group-item">
-        <i class="fa fa-calendar-o fa-lg"></i>
-        <abbr class="published" title="2014-12-16T00:00:00+08:00"> Tue, 16 Dec 2014</abbr>
-    </li>
-
-    <!-- author -->
-        <li class="list-group-item">
-            <i class="fa fa-user fa-lg"></i>
-            <a class="ybs-black" href="/about.html">Brad Lucas</a>
-        </li>
-
-    <!-- category -->
-    <li class="list-group-item">
-        <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/exbot-xi-platform.html">ExBot XI Platform</a>
-    </li>
-
-    <!-- tags -->
-        <li class="list-group-item">
-            <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/exbot-xi.html">ExBot XI</a>,
-                <a class="ybs-black" href="/blog/tag/irobot-create.html">iRobot Create</a>,
-                <a class="ybs-black" href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a>,
-                <a class="ybs-black" href="/blog/tag/ros.html">ROS</a>,
-        </li>
-</ul>                </div>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2><a href="/blog/2014-12-Exbot-XI-Development-1-Exbot-XI-Test.html">ExBot XI开发札记(一)ExBot XI测试</a></h2>
-                </div>
-                <div class="panel-body">
-                    <div><p class="first last">到手了一个Exbot xi，感谢&#64;Yuanbo She的设计！打算记录下来玩的过程，以及自己开发的一些实验demo。</p>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="#id7">一些工具的介绍以及Python的安装</a></h2>
+<p>这个我是参考&#64;Yuanbo She的一篇经典的Python虚拟环境搭建的文章来的，地址如下：</p>
+<p>my.phirobot.com/blog/2014-02-python_in_windows.html</p>
+<p>这里面对Python的安装、环境变量的配置、虚拟环境的配置有很详细的解释，我就不赘述了。</p>
 </div>
-<ul class="list-group list-inline ybs-info-list">
-    <!-- date -->
-    <li class="list-group-item">
-        <i class="fa fa-calendar-o fa-lg"></i>
-        <abbr class="published" title="2014-12-15T00:00:00+08:00"> Mon, 15 Dec 2014</abbr>
-    </li>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">安装过程中可能遇到的问题</a></h2>
+<p>有时候，一处小小的错误就会让你折腾好几天。我遇到的一些问题如下：</p>
+<p>(1)设置Python系统环境变量：在系统变量中新建一项，变量名为Python，变量值为D:/Python/Python27。</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">这里一定要注意，变量值后面千万不要加分号，否则在powershell或者cmd中运行python命令会找不到。</p>
+</div>
+<p>(2)Python在安装的时候，千万不要安装到一个带空格的目录里面，比如不要安装在C:Program FilesPython27，否则后面执行C:Program FilesPython27Scripts中的pip，</p>
+<p>virtualenv会出现错误。</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">这个装到类似D:PythonPython27的目录下就好了，这个地方折腾了我好几天。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">安装过程中的几个主要的命令</a></h2>
+<p>打开PowerShell，输入：</p>
+<div class="highlight"><pre>Start-Process powershell -Verb runas
+</pre></div>
+<p>在新打开的PowerShell中输入：</p>
+<div class="highlight"><pre>Set-ExecutionPolicy RemoteSigned
+</pre></div>
+<p>下一步回车即可。</p>
+<p>下面的命令用来完成virtualenv和virtualenvwrapper-powershell的安装设置：</p>
+<div class="highlight"><pre>pip install virtualenv
 
-    <!-- author -->
-        <li class="list-group-item">
-            <i class="fa fa-user fa-lg"></i>
-            <a class="ybs-black" href="/about.html">Brad Lucas</a>
-        </li>
+pip install virtualenvwrapper-powershell
 
-    <!-- category -->
-    <li class="list-group-item">
-        <i class="fa fa-folder-open-o fa-lg"></i>
-        <a class="ybs-black" href="/blog/category/exbot-xi-platform.html">ExBot XI Platform</a>
-    </li>
+mkdir $env:WORKON_HOME
 
-    <!-- tags -->
-        <li class="list-group-item">
-            <i class="fa fa-tag fa-lg"></i>
-                <a class="ybs-black" href="/blog/tag/exbot-xi.html">ExBot XI</a>,
-                <a class="ybs-black" href="/blog/tag/irobot-create.html">iRobot Create</a>,
-                <a class="ybs-black" href="/blog/tag/asus-xtion-pro-live.html">ASUS Xtion Pro Live</a>,
-                <a class="ybs-black" href="/blog/tag/ros.html">ROS</a>,
-        </li>
-</ul>                </div>
-            </div>
+cd $env:WORKON_HOME
+
+import-module virtualenvwrapper
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">创建新的Python虚拟环境</a></h2>
+<div class="highlight"><pre>mkvirtualenv rosenv --no-site-packages
+</pre></div>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id11">Reference</a></h2>
+<!-- Installing and Configuring Your ROS Environment, http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment -->
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id12">致谢</a></h2>
+<p>这里，要特别感谢&#64;Yuanbo She的博客：</p>
+<p>my.phirobot.com/blog/2014-02-python_in_windows.html</p>
+<p>从他那里我学到了太多东西。</p>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id13">最后</a></h2>
+<p>好了，就到这里了，我以我能理解到的程度解释并说明了如果安装及配置Python虚拟环境需要注意到的一些地方，希望能让大家少走一些弯路。</p>
+</div>
+
+        </div>
+    </article>
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript">
+    var uyan_config = {
+        'su': 'blog/2015-01-Python_Virtual_Env_Install.html'
+    };
+</script>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1803538"></script>
+<!-- UY END -->
+<!-- UJian Button BEGIN -->
+<script type="text/javascript">var ujian_config = {target:1};</script>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&fade=1&uid=1803538"></script>
+<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+<!-- UJian Button END -->
 
             <!-- pagers -->
         </div>
@@ -273,7 +290,7 @@
                     </li>
                     <li>
                         <a class="ybs-black" href="/blog/category/ros.html" title="ROS">
-                            <i class="fa fa-folder-o fa-lg"></i> ROS
+                            <i class="fa fa-folder-open-o fa-lg"></i> ROS
                         </a>
                     </li>
             </ul>
